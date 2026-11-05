@@ -34,7 +34,8 @@
       font-family: var(--font-sans);
       line-height: 1.75;
       padding-bottom: 3rem;
-      font-size: 1.03rem;
+      font-size: 1.02rem;
+      -webkit-font-smoothing: antialiased;
     }
 
     header {
@@ -53,6 +54,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 1.5rem;
+      gap: 1rem;
     }
 
     .brand {
@@ -60,13 +62,19 @@
       font-weight: 700;
       color: var(--accent-green);
       text-decoration: none;
-      font-size: 1.05rem;
+      font-size: 1.02rem;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
     }
 
     .nav-links a {
       color: var(--text-muted);
       text-decoration: none;
-      margin-left: 1.25rem;
       font-size: 0.92rem;
       transition: color 0.2s;
     }
@@ -112,16 +120,16 @@
     }
 
     .article-title {
-      font-size: 2.35rem;
+      font-size: clamp(1.8rem, 3.8vw, 2.35rem);
       color: var(--heading);
-      line-height: 1.22;
+      line-height: 1.25;
       margin-bottom: 0.9rem;
       letter-spacing: -0.015em;
     }
 
     .article-subtitle {
       color: var(--text-muted);
-      font-size: 1.12rem;
+      font-size: clamp(1rem, 2vw, 1.12rem);
       margin-bottom: 1.25rem;
       line-height: 1.6;
     }
@@ -132,13 +140,13 @@
       color: var(--text-muted);
       display: flex;
       flex-wrap: wrap;
-      gap: 1.25rem;
+      gap: 1rem 1.5rem;
     }
 
-    /* Quick Stats Grid */
+    /* Key Stats Grid - Tablet Optimized */
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 1rem;
       margin: 2rem 0;
     }
@@ -148,7 +156,7 @@
       border: 1px solid var(--card-border);
       border-top: 3px solid var(--accent-green);
       border-radius: 8px;
-      padding: 1.1rem 1.2rem;
+      padding: 1.1rem;
     }
 
     .stat-label {
@@ -161,23 +169,24 @@
 
     .stat-value {
       font-family: var(--font-mono);
-      font-size: 1.3rem;
+      font-size: clamp(1.15rem, 2.4vw, 1.35rem);
       font-weight: 700;
       color: var(--heading);
       margin: 0.25rem 0 0.15rem;
     }
 
     .stat-sub {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
+      line-height: 1.35;
     }
 
-    /* Official Certificate Visual Showcase */
+    /* Certificate Visual Showcase */
     .cert-showcase {
       background: linear-gradient(135deg, #0b0716 0%, #131129 60%, #1c1036 100%);
       border: 1px solid rgba(168, 85, 247, 0.45);
       border-radius: 12px;
-      padding: 2rem;
+      padding: clamp(1.35rem, 3vw, 2rem);
       margin: 2rem 0;
       position: relative;
       overflow: hidden;
@@ -213,7 +222,7 @@
 
     .cert-cpts-big {
       font-family: var(--font-mono);
-      font-size: 2.6rem;
+      font-size: clamp(2rem, 5vw, 2.6rem);
       font-weight: 900;
       color: #a855f7;
       letter-spacing: 0.08em;
@@ -228,7 +237,7 @@
     }
 
     .cert-holder-name {
-      font-size: 1.9rem;
+      font-size: clamp(1.5rem, 3.5vw, 1.9rem);
       font-weight: 800;
       color: #ffffff;
       letter-spacing: 0.06em;
@@ -240,11 +249,12 @@
       color: #9ca3af;
       max-width: 520px;
       margin-bottom: 1.5rem;
+      line-height: 1.6;
     }
 
     .cert-footer-meta {
       display: flex;
-      gap: 2.5rem;
+      gap: 1.5rem 2.5rem;
       flex-wrap: wrap;
       border-top: 1px solid rgba(168, 85, 247, 0.25);
       padding-top: 1rem;
@@ -260,7 +270,7 @@
       display: block;
     }
 
-    /* Table of Contents */
+    /* Table of Contents - Tablet 2-column, Mobile 1-column */
     .toc-box {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -283,13 +293,12 @@
       list-style: none;
       padding-left: 0;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 0.45rem 1.5rem;
     }
 
     .toc-list li {
-      font-size: 0.93rem;
-      margin-bottom: 0;
+      font-size: 0.92rem;
     }
 
     .toc-list a {
@@ -302,9 +311,9 @@
       text-decoration: underline;
     }
 
-    /* Typography */
+    /* Headings & Typography */
     .article-body h2 {
-      font-size: 1.6rem;
+      font-size: clamp(1.35rem, 3vw, 1.6rem);
       color: var(--heading);
       margin: 2.85rem 0 1rem;
       border-bottom: 1px solid #21262d;
@@ -312,20 +321,22 @@
       display: flex;
       align-items: center;
       gap: 0.6rem;
+      line-height: 1.3;
     }
 
     .sec-num {
       font-family: var(--font-mono);
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       color: var(--accent-green);
       background: rgba(63, 185, 80, 0.12);
       border: 1px solid rgba(63, 185, 80, 0.35);
       padding: 0.1rem 0.5rem;
       border-radius: 4px;
+      flex-shrink: 0;
     }
 
     .article-body h3 {
-      font-size: 1.22rem;
+      font-size: clamp(1.15rem, 2.5vw, 1.25rem);
       color: var(--accent);
       margin: 1.85rem 0 0.65rem;
     }
@@ -396,9 +407,10 @@
       border-radius: 4px;
       font-size: 0.87em;
       color: #79c0ff;
+      word-break: break-word;
     }
 
-    /* Terminal / Screenshot Visual Mockups */
+    /* Terminal & Screenshot Containers */
     .screenshot-frame {
       background: var(--code-bg);
       border: 1px solid var(--card-border);
@@ -415,11 +427,13 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 0.5rem;
     }
 
     .window-dots {
       display: flex;
       gap: 0.45rem;
+      flex-shrink: 0;
     }
 
     .dot {
@@ -435,6 +449,9 @@
       font-family: var(--font-mono);
       font-size: 0.78rem;
       color: var(--text-muted);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .terminal-content {
@@ -444,6 +461,7 @@
       line-height: 1.6;
       overflow-x: auto;
       color: #e6edf3;
+      -webkit-overflow-scrolling: touch;
     }
 
     .term-cmd { color: #3fb950; font-weight: 600; }
@@ -460,31 +478,35 @@
       font-size: 0.78rem;
       color: var(--text-muted);
       text-align: center;
+      line-height: 1.4;
     }
 
-    /* HTB Activity Heatmap Replica */
+    /* HTB Activity Heatmap */
     .heatmap-wrapper {
       padding: 1.5rem;
       background: #101622;
       overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     .heatmap-months {
       display: grid;
-      grid-template-columns: repeat(12, minmax(54px, 1fr));
+      grid-template-columns: repeat(12, minmax(48px, 1fr));
       gap: 0.45rem;
       font-family: var(--font-mono);
       font-size: 0.78rem;
       color: #8b949e;
       text-align: center;
       margin-bottom: 0.6rem;
+      min-width: 600px;
     }
 
     .heatmap-row {
       display: grid;
-      grid-template-columns: repeat(12, minmax(54px, 1fr));
+      grid-template-columns: repeat(12, minmax(48px, 1fr));
       gap: 0.45rem;
       margin-bottom: 0.4rem;
+      min-width: 600px;
     }
 
     .hm-cell {
@@ -498,10 +520,10 @@
     .hm-cell.lvl-4 { background: #9fef00; box-shadow: 0 0 8px rgba(159, 239, 0, 0.35); }
     .hm-cell.empty { background: transparent; }
 
-    /* Examiner Feedback Verbatim Box */
+    /* Examiner Feedback Card */
     .feedback-card {
       background: #131924;
-      padding: 1.65rem 1.85rem;
+      padding: clamp(1.25rem, 2.5vw, 1.85rem);
       color: #c9d1d9;
       font-size: 0.95rem;
       line-height: 1.7;
@@ -522,12 +544,13 @@
       padding-left: 1.4rem;
     }
 
-    /* Flag Progress Table / Diary */
+    /* Flag Progress Table - Touch-Friendly */
     .flag-table-wrap {
       overflow-x: auto;
       margin: 1.5rem 0;
       border: 1px solid var(--card-border);
       border-radius: 8px;
+      -webkit-overflow-scrolling: touch;
     }
 
     .flag-table {
@@ -535,6 +558,7 @@
       border-collapse: collapse;
       font-size: 0.9rem;
       background: var(--card-bg);
+      min-width: 580px;
     }
 
     .flag-table th,
@@ -567,6 +591,7 @@
       font-weight: 700;
       padding: 0.2rem 0.55rem;
       border-radius: 4px;
+      white-space: nowrap;
     }
 
     .flag-pill.found {
@@ -593,49 +618,13 @@
       border: 1px solid rgba(88, 166, 255, 0.4);
     }
 
-    /* SysReptor Mockup Split View */
-    .sysreptor-mock {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border-top: 1px solid var(--card-border);
-    }
-
-    .sys-pane {
-      padding: 1.15rem;
-      font-size: 0.82rem;
-    }
-
-    .sys-pane.editor {
-      background: #0d1117;
-      font-family: var(--font-mono);
-      border-right: 1px solid var(--card-border);
-    }
-
-    .sys-pane.preview {
-      background: #161b22;
-      font-family: var(--font-sans);
-    }
-
-    .sys-badge-crit {
-      display: inline-block;
-      background: rgba(248, 81, 73, 0.2);
-      color: #ff7b72;
-      border: 1px solid rgba(248, 81, 73, 0.5);
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      padding: 0.1rem 0.45rem;
-      border-radius: 4px;
-      font-weight: 700;
-      margin-bottom: 0.45rem;
-    }
-
-    /* Network Topology Flow */
+    /* Network Topology Flow - Tablet & Mobile Responsive */
     .topology-flow {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 0.5rem;
+      gap: 0.6rem;
       background: var(--code-bg);
       border: 1px solid var(--card-border);
       border-radius: 8px;
@@ -649,10 +638,10 @@
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 6px;
-      padding: 0.7rem 0.9rem;
+      padding: 0.75rem 0.85rem;
       text-align: center;
       flex: 1;
-      min-width: 135px;
+      min-width: 140px;
     }
 
     .topo-node strong {
@@ -667,10 +656,10 @@
       font-size: 1.1rem;
     }
 
-    /* Tips Grid */
+    /* Tips Grid - Tablet 2-column, Mobile 1-column */
     .tips-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.15rem;
       margin: 1.5rem 0;
     }
@@ -699,15 +688,16 @@
 
     .tip-card p {
       color: var(--text-muted);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       margin-bottom: 0;
+      line-height: 1.55;
     }
 
-    /* Resource Cards */
+    /* Resource Cards - Tablet 2-column, Mobile 1-column */
     .resource-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 1.1rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.15rem;
       margin: 1.5rem 0;
     }
 
@@ -718,7 +708,9 @@
       padding: 1.25rem;
       text-decoration: none;
       transition: border-color 0.2s, background-color 0.2s;
-      display: block;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .resource-card:hover {
@@ -739,18 +731,21 @@
       color: var(--heading);
       font-size: 1.05rem;
       margin: 0.25rem 0 0.4rem;
+      line-height: 1.35;
     }
 
     .resource-card p {
       color: var(--text-muted);
       font-size: 0.86rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.65rem;
+      line-height: 1.5;
     }
 
     .res-url {
       font-family: var(--font-mono);
       font-size: 0.76rem;
       color: var(--accent);
+      word-break: break-all;
     }
 
     /* Author Card */
@@ -792,6 +787,7 @@
       font-size: 0.78rem;
       color: var(--accent);
       margin-bottom: 0.35rem;
+      line-height: 1.4;
     }
 
     .author-info p {
@@ -810,6 +806,7 @@
       border-top: 1px solid var(--card-border);
       font-family: var(--font-mono);
       font-size: 0.9rem;
+      flex-wrap: wrap;
     }
 
     footer {
@@ -825,10 +822,69 @@
       gap: 1rem;
     }
 
+    /* Tablet Optimizations (768px - 1024px) */
+    @media (max-width: 900px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.9rem;
+      }
+      .toc-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.45rem 1rem;
+      }
+      .tips-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .resource-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Mobile Phones & Compact Screens (under 680px) */
     @media (max-width: 680px) {
-      .sysreptor-mock { grid-template-columns: 1fr; }
-      .sys-pane.editor { border-right: none; border-bottom: 1px solid var(--card-border); }
-      .resource-grid { grid-template-columns: 1fr; }
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.85rem 1rem;
+      }
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 1rem;
+        margin-top: 0.5rem;
+      }
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      .toc-list {
+        grid-template-columns: 1fr;
+      }
+      .tips-grid {
+        grid-template-columns: 1fr;
+      }
+      .resource-grid {
+        grid-template-columns: 1fr;
+      }
+      .topology-flow {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .topo-arrow {
+        transform: rotate(90deg);
+        margin: 0.25rem auto;
+      }
+      .author-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .back-links {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
@@ -858,7 +914,7 @@
           How I prepared for and passed the Hack The Box Certified Penetration Testing Specialist (CPTS) exam—from 18 weeks of training across the 28-module Penetration Tester Path (44 days, 2 hours) and IppSec's Unofficial CPTS playlist to my Oct 23 – Nov 2 exam run, CherryTree checklists, and earning exceptional Examiner Feedback.
         </p>
         <div class="article-meta">
-          <span>Author: Asish K Sahadevan</span>
+          <span>Author: Asish K S</span>
           <span>Exam Run: Oct 23 – Nov 2</span>
           <span>Passing Score: Min 85 / 100 Marks</span>
           <span>Certificate ID: HTBCERT-850BE4F612</span>
@@ -907,7 +963,6 @@
           <div><span style="color:#9ca3af;">EXAM SCORE:</span> <strong style="color:#9fef00;">85 Points (12/14 Flags)</strong></div>
           <div><span style="color:#9ca3af;">VERIFIED BY:</span> <strong style="color:#fff;">Charalampos Pylarinos &amp; Dimitrios Bougioukas</strong></div>
         </div>
-        <!-- Automatically displays your uploaded certificate image if placed at ../assets/cpts-certificate.png -->
         <img src="../assets/cpts-certificate.png" alt="HTB Certified Penetration Testing Specialist Certificate - Asish K S" class="cert-uploaded-img" onerror="this.style.display='none'" />
       </div>
 
@@ -957,7 +1012,6 @@
             <div class="window-title">HTB Academy &amp; Lab Activity Streak — 18 Weeks Active Preparation</div>
             <div></div>
           </div>
-          <!-- Displays your uploaded heatmap screenshot if placed at ../assets/htb-weeks-active.png -->
           <img src="../assets/htb-weeks-active.png" alt="HTB 18 Weeks Active Streak Heatmap" style="width:100%; display:block;" onerror="this.style.display='none'" />
           <div class="heatmap-wrapper">
             <div class="heatmap-months">
@@ -1203,7 +1257,6 @@
             <div class="window-title">Hack The Box Academy — Official CPTS Examiner's Feedback</div>
             <div></div>
           </div>
-          <!-- Automatically displays your uploaded examiner feedback screenshot if placed at ../assets/examiner-feedback.png -->
           <img src="../assets/examiner-feedback.png" alt="HTB CPTS Official Examiner Feedback for Asish K S" style="width:100%; display:block;" onerror="this.style.display='none'" />
           <div class="feedback-card">
             <h4>Examiner's Feedback</h4>
@@ -1319,7 +1372,7 @@
       <div class="author-card">
         <div class="author-avatar">AS</div>
         <div class="author-info">
-          <h4>Asish K Sahadevan</h4>
+          <h4>Asish K S</h4>
           <div class="author-creds">HTB CPTS | CREST CPSA | INE eJPT | SecOps CNSP | SecOps CAP | RHCE</div>
           <p>Offensive Security Specialist &amp; Sr. Solution Consultant focusing on Active Directory exploitation, internal pivoting, and enterprise adversary simulation.</p>
         </div>
@@ -1328,7 +1381,7 @@
   </div>
 
   <footer>
-    <div>&copy; 2026 ReturnToRoot • Offensive Security Portal by Asish K Sahadevan</div>
+    <div>&copy; 2026 ReturnToRoot • Offensive Security Portal by Asish K S</div>
     <div>returntoroot.github.io</div>
   </footer>
 
