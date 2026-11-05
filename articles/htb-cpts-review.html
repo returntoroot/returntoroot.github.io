@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Road to HTB CPTS: 18 Weeks of Prep, Real-World Exam Diary & SysReptor Guide | ReturnToRoot</title>
-  <meta name="description" content="My complete journey passing the Hack The Box Certified Penetration Testing Specialist (CPTS) exam (Sep 24 – Oct 2). Covering 28 modules (44d 2h), 18 weeks of prep, CherryTree checklists, IppSec's Unofficial CPTS machines, daily flag log, and Examiner's Feedback." />
+  <meta name="description" content="My complete journey passing the Hack The Box Certified Penetration Testing Specialist (CPTS) exam (Oct 23 – Nov 2). Covering 28 modules (44d 2h), 18 weeks of prep, CherryTree checklists, IppSec's Unofficial CPTS machines, daily flag log, and Examiner's Feedback." />
   <link rel="canonical" href="https://returntoroot.github.io/articles/htb-cpts-review.html" />
   <style>
     :root {
@@ -859,7 +859,7 @@
         </p>
         <div class="article-meta">
           <span>Author: Asish K Sahadevan</span>
-          <span>Exam Run: Sep 24 – Oct 2</span>
+          <span>Exam Run: Oct 23 – Nov 2</span>
           <span>Certificate ID: HTBCERT-850BE4F612</span>
           <span>Reading Time: 16 min</span>
         </div>
@@ -879,7 +879,7 @@
         </div>
         <div class="stat-box">
           <div class="stat-label">Exam Window</div>
-          <div class="stat-value">Sep 24 – Oct 2</div>
+          <div class="stat-value">Sep 23 – Oct 2</div>
           <div class="stat-sub">12 Flags (85 Pts) + Report</div>
         </div>
         <div class="stat-box">
@@ -918,7 +918,7 @@
           <li><a href="#prep-path">02. 18 Weeks of Prep: The 28-Module (44d 2h) Path &amp; CherryTree</a></li>
           <li><a href="#ippsec-prep">03. IppSec's Unofficial CPTS Machines &amp; Why AEN Is NOT the Exam</a></li>
           <li><a href="#exam-pattern">04. Exam Pattern: Simulating a Real-World Black-Box Pentest</a></li>
-          <li><a href="#exam-timeline">05. My Exam Diary &amp; Flag Log (Sep 24 – Oct 2): Conquering Flag 8</a></li>
+          <li><a href="#exam-timeline">05. My Exam Diary &amp; Flag Log (Oct 23 – Nov 2): Conquering Flag 8</a></li>
           <li><a href="#sysreptor">06. Commercial-Grade Reporting with SysReptor &amp; Examiner's Feedback</a></li>
           <li><a href="#tips-tricks">07. Battle-Tested Tips, Checklists &amp; The Golden Rule</a></li>
           <li><a href="#additional-reading">08. Additional Reading, Practice &amp; Community References</a></li>
@@ -1064,7 +1064,7 @@
         </ul>
 
         <!-- Section 5 -->
-        <h2 id="exam-timeline"><span class="sec-num">05</span> My Exam Diary &amp; Flag Log (Sep 24 – Oct 2): Conquering Flag 8</h2>
+        <h2 id="exam-timeline"><span class="sec-num">05</span> My Exam Diary &amp; Flag Log (Oct 23 – Nov 2): Conquering Flag 8</h2>
         <p>
           I started my exam on <strong>September 24</strong> and completed the entire engagement—including the final commercial report submission—on <strong>October 2</strong>.
         </p>
@@ -1084,61 +1084,61 @@
             </thead>
             <tbody>
               <tr>
-                <td class="flag-date">09-24 (Part 1)</td>
+                <td class="flag-date">10-23 (Part 1)</td>
                 <td><span class="flag-pill zero">0 Flags</span></td>
                 <td>0 / 14</td>
                 <td>Exam kickoff. Initial enumeration against the external IP and domain name. Mapping ports, directories, and virtual hosts using my CherryTree checklist.</td>
               </tr>
               <tr>
-                <td class="flag-date">09-24 (Part 2)</td>
+                <td class="flag-date">10-24 (Part 2)</td>
                 <td><span class="flag-pill found">Flag 1</span></td>
                 <td>1 / 14</td>
                 <td>Breakthrough on the perimeter! Chained our initial web findings to compromise the external foothold and secured <strong>Flag 1</strong> before wrapping up Day 1.</td>
               </tr>
               <tr>
-                <td class="flag-date">09-25</td>
+                <td class="flag-date">10-25</td>
                 <td><span class="flag-pill found">Flag 2, Flag 3</span></td>
                 <td>3 / 14</td>
                 <td>Escalated privileges, established the first <code>ligolo-ng</code> tunnel into the internal network, and captured <strong>Flags 2 and 3</strong>.</td>
               </tr>
               <tr>
-                <td class="flag-date">09-26</td>
+                <td class="flag-date">10-26</td>
                 <td><span class="flag-pill found">Flag 4, 5, 6, 7</span></td>
                 <td>7 / 14</td>
                 <td>Huge momentum day! Deep Active Directory enumeration, credential pillaging, and lateral movement unlocked four flags in a single day (<strong>Flags 4, 5, 6, and 7</strong>). Halfway there in 3 days!</td>
               </tr>
               <tr>
-                <td class="flag-date">09-27</td>
+                <td class="flag-date">10-27</td>
                 <td><span class="flag-pill zero">No Flag Found</span></td>
                 <td>7 / 14</td>
                 <td>Hit the infamous mid-exam wall while hunting for Flag 8. Tested multiple hypotheses across internal hosts with zero new flags.</td>
               </tr>
               <tr>
-                <td class="flag-date">09-28</td>
+                <td class="flag-date">10-28</td>
                 <td><span class="flag-pill zero">No Flag Found</span></td>
                 <td>7 / 14</td>
                 <td>Second consecutive day with <strong>no flag</strong>. Rabbit holes tested my patience as every obvious vector seemed exhausted.</td>
               </tr>
               <tr>
-                <td class="flag-date">09-29</td>
+                <td class="flag-date">10-29</td>
                 <td><span class="flag-pill zero">No Flag Found</span></td>
                 <td>7 / 14</td>
                 <td>Third straight day with <strong>no flag</strong>. Stepped back, reset my mindset, and applied the <strong>Golden Rule: Do enumeration again from scratch when stuck</strong>.</td>
               </tr>
               <tr>
-                <td class="flag-date">09-30</td>
+                <td class="flag-date">10-30</td>
                 <td><span class="flag-pill hardest">Flag 8 (Hardest!)</span> <span class="flag-pill found">Flag 9, 10</span></td>
                 <td>10 / 14</td>
                 <td><strong>The Turning Point!</strong> Re-enumerating carefully uncovered the missing piece for <strong>Flag 8—hands-down the hardest flag of the entire exam</strong>. Once Flag 8 fell, the floodgates opened and <strong>Flags 9 and 10</strong> fell the same day!</td>
               </tr>
               <tr>
-                <td class="flag-date">09-31 / 10-01</td>
+                <td class="flag-date">10-31 / 10-01</td>
                 <td><span class="flag-pill found">Flag 11, Flag 12</span></td>
                 <td>12 / 14 (85 Pts)</td>
                 <td>Pushed deep into the final domain tier and captured <strong>Flags 11 and 12</strong>—officially crossing the 12-flag passing threshold (85 points)!</td>
               </tr>
               <tr>
-                <td class="flag-date">10-02</td>
+                <td class="flag-date">11-02</td>
                 <td><span class="flag-pill report">Report Submitted</span></td>
                 <td>PASSED</td>
                 <td>Verified all screenshots, command outputs, CVSS scores, and remediation advice in <strong>SysReptor</strong>, compiled the final PDF, and submitted the exam report.</td>
@@ -1148,8 +1148,8 @@
         </div>
 
         <div class="callout warn">
-          <div class="callout-title">The Lesson of Sep 27–29 &amp; Flag 8: The Golden Rule</div>
-          Going three full days (<strong>09-27, 09-28, and 09-29</strong>) without finding a single flag after capturing 7 flags in the first three days is mentally brutal. <strong>Flag 8 was by far the hardest flag on the exam.</strong> What broke the deadlock on 09-30 wasn't a lucky guess—it was following the <strong>Golden Rule: When you are stuck, go back and do enumeration again from the beginning</strong>. Re-check every compromised host, re-read every config file, re-verify yourCherryTree checklist, and look closely at output you previously skimmed over.
+          <div class="callout-title">The Lesson of Oct 27–29 &amp; Flag 8: The Golden Rule</div>
+          Going three full days (<strong>10-27, 10-28, and 10-29</strong>) without finding a single flag after capturing 7 flags in the first three days is mentally brutal. <strong>Flag 8 was by far the hardest flag on the exam.</strong> What broke the deadlock on 09-30 wasn't a lucky guess—it was following the <strong>Golden Rule: When you are stuck, go back and do enumeration again from the beginning</strong>. Re-check every compromised host, re-read every config file, re-verify yourCherryTree checklist, and look closely at output you previously skimmed over.
         </div>
 
         <!-- Visual Screenshot Frame: Ligolo-ng Multi-Hop Pivoting -->
@@ -1239,7 +1239,7 @@
         <div class="tips-grid">
           <div class="tip-card">
             <h4><span class="tip-num">#01</span> Golden Rule: Re-Enumerate When Stuck</h4>
-            <p>When you hit a multi-day wall (like I did on Sep 27–29 hunting Flag 8), stop guessing exploits. Step back and <strong>do your enumeration again from scratch</strong>—the answer is almost always hiding in a service, share, or file you overlooked.</p>
+            <p>When you hit a multi-day wall (like I did on Oct 27–29 hunting Flag 8), stop guessing exploits. Step back and <strong>do your enumeration again from scratch</strong>—the answer is almost always hiding in a service, share, or file you overlooked.</p>
           </div>
 
           <div class="tip-card">
@@ -1306,7 +1306,7 @@
 
         <div class="callout">
           <div class="callout-title">Final Thoughts</div>
-          Completing the 28 modules (44 days, 2 hours), grinding for 18 weeks across labs and IppSec's Unofficial CPTS playlist, pushing through the 3-day Flag 8 wall during my Sep 24 – Oct 2 exam window, and receiving such positive Examiner Feedback made the entire journey unforgettable. If you want a certification that truly tests real-world penetration testing from an external IP all the way to full internal compromise, <strong>HTB CPTS is unmatched</strong>.
+          Completing the 28 modules (44 days, 2 hours), grinding for 18 weeks across labs and IppSec's Unofficial CPTS playlist, pushing through the 3-day Flag 8 wall during my Oct 24 – Nov 2 exam window, and receiving such positive Examiner Feedback made the entire journey unforgettable. If you want a certification that truly tests real-world penetration testing from an external IP all the way to full internal compromise, <strong>HTB CPTS is unmatched</strong>.
         </div>
 
         <div class="back-links">
@@ -1314,17 +1314,6 @@
           <a href="../aboutme.html">About the Author &rarr;</a>
         </div>
       </div>
-
-      <div class="author-card">
-        <div class="author-avatar">AS</div>
-        <div class="author-info">
-          <h4>Asish K Sahadevan</h4>
-          <div class="author-creds">HTB CPTS | CREST CPSA | INE eJPT | SecOps CNSP | SecOps CAP | RHCE</div>
-          <p>Offensive Security Specialist &amp; Sr. Solution Consultant focusing on Active Directory exploitation, internal pivoting, and enterprise adversary simulation.</p>
-        </div>
-      </div>
-    </article>
-  </div>
 
   <footer>
     <div>&copy; 2026 ReturnToRoot • Offensive Security Portal by Asish K Sahadevan</div>
