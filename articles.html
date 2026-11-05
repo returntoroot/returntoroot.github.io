@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Articles | Cyber Realm - Offensive Security Write-ups</title>
+  <meta name="description" content="All offensive security articles, penetration testing guides, and certification reviews on Cyber Realm." />
+  <link rel="canonical" href="https://returntoroot.github.io/articles.html" />
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --card-border: #30363d;
+      --card-hover: #1f242c;
+      --accent: #58a6ff;
+      --accent-terminal: #3fb950;
+      --text: #c9d1d9;
+      --text-muted: #8b949e;
+      --heading: #f0f6fc;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+    }
+
+    header {
+      background: rgba(22, 27, 34, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--card-border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+    }
+
+    .brand {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--accent-terminal);
+      text-decoration: none;
+      font-size: 1.05rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--heading);
+    }
+
+    main {
+      max-width: 960px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .page-header {
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 2.5rem;
+    }
+
+    .page-header h1 {
+      font-size: 2.3rem;
+      color: var(--heading);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-header p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .article-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .article-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, background-color 0.2s;
+    }
+    .article-card:hover {
+      border-color: var(--accent);
+      background-color: var(--card-hover);
+    }
+
+    .article-meta-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+    }
+
+    .article-tag {
+      color: var(--accent-terminal);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .article-date {
+      color: var(--text-muted);
+    }
+
+    .article-card h2 {
+      font-size: 1.45rem;
+      color: var(--heading);
+      margin-bottom: 0.65rem;
+    }
+
+    .article-card h2 a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .article-card h2 a:hover { color: var(--accent); }
+
+    .article-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .tag-chips {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.1rem;
+    }
+
+    .chip {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      background: #21262d;
+      color: var(--text-muted);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      border: 1px solid var(--card-border);
+    }
+
+    .read-link {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .read-link:hover { text-decoration: underline; }
+
+    footer {
+      max-width: 960px;
+      margin: 4rem auto 0;
+      padding: 2rem 1.5rem 3rem;
+      border-top: 1px solid var(--card-border);
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-inner">
+      <a href="index.html" class="brand">asish@returntoroot:~$</a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="articles.html" class="active">Articles</a>
+        <a href="about.html">About Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <h1>All Articles &amp; Write-ups</h1>
+      <p>Technical publications covering offensive security certifications, enterprise penetration testing, and adversary tradecraft.</p>
+    </div>
+
+    <div class="article-list">
+      <!-- Article #1 -->
+      <article class="article-card">
+        <div class="article-meta-top">
+          <span class="article-tag">Certification Review // Offensive Security</span>
+          <span class="article-date">2026 • 8 min read</span>
+        </div>
+        <h2>
+          <a href="articles/htb-cpts-review.html">Cracking the HTB CPTS: My Journey, Exam Breakdown &amp; Key Takeaways</a>
+        </h2>
+        <p class="article-desc">
+          An end-to-end review of Hack The Box's Certified Penetration Testing Specialist (CPTS) exam—covering preparation modules, multi-hop network pivoting with ligolo-ng, Active Directory exploitation paths, and writing a commercial-grade pentest report.
+        </p>
+        <div class="tag-chips">
+          <span class="chip">HTB CPTS</span>
+          <span class="chip">Active Directory</span>
+          <span class="chip">Ligolo-ng</span>
+          <span class="chip">Penetration Testing</span>
+        </div>
+        <a href="articles/htb-cpts-review.html" class="read-link">Read Article &rarr;</a>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div>&copy; 2026 Cyber Realm • Offensive Security Portal by Asish K Sahadevan</div>
+    <div>returntoroot.github.io</div>
+  </footer>
+
+</body>
+</html>
