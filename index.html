@@ -21,7 +21,7 @@
       --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       background-color: var(--bg);
       color: var(--text);
@@ -30,7 +30,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Completely static, non-sticky header */
     header {
       background: #161b22;
       border-bottom: 1px solid var(--card-border);
@@ -158,7 +157,6 @@
     }
     .view-all:hover { text-decoration: underline; }
 
-    /* Article Cards */
     .article-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -231,13 +229,11 @@
       gap: 1rem;
     }
 
-    /* Tablet Responsiveness */
     @media (max-width: 900px) {
       .hero { padding: 2.75rem 0 2.25rem; }
       .section-header { margin: 2.5rem 0 1rem; }
     }
 
-    /* Mobile Responsiveness */
     @media (max-width: 640px) {
       .nav-inner {
         flex-direction: column;
@@ -284,7 +280,6 @@
   </header>
 
   <main>
-    <!-- Welcome & Introduction Section -->
     <section class="hero">
       <span class="terminal-tag">[+] INITIALIZING RETURNTOROOT // OFFENSIVE SECURITY RESEARCH</span>
       <h1>Welcome to ReturnToRoot</h1>
@@ -296,7 +291,6 @@
       </div>
     </section>
 
-    <!-- Featured Articles Section -->
     <section id="featured-articles">
       <div class="section-header">
         <h2 class="section-title">Featured Articles</h2>
