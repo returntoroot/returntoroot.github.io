@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me | Asish K Sahadevan - Cyber Realm</title>
+  <meta name="description" content="About Asish K Sahadevan - Offensive Security Practitioner holding HTB CPTS, CREST CPSA, INE eJPT, SecOps CNSP, SecOps CAP, and RHCE." />
+  <link rel="canonical" href="https://returntoroot.github.io/about.html" />
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --card-border: #30363d;
+      --accent: #58a6ff;
+      --accent-terminal: #3fb950;
+      --accent-htb: #9fef00;
+      --accent-crest: #38bdf8;
+      --text: #c9d1d9;
+      --text-muted: #8b949e;
+      --heading: #f0f6fc;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+    }
+
+    header {
+      background: rgba(22, 27, 34, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--card-border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+    }
+
+    .brand {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--accent-terminal);
+      text-decoration: none;
+      font-size: 1.05rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--heading);
+    }
+
+    main {
+      max-width: 960px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Profile Card */
+    .about-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 2.25rem;
+      margin-bottom: 3rem;
+    }
+
+    .about-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 1.5rem;
+    }
+
+    .about-name h1 {
+      font-size: 2rem;
+      color: var(--heading);
+      margin-bottom: 0.25rem;
+    }
+
+    .about-name .subtitle {
+      font-family: var(--font-mono);
+      color: var(--accent-terminal);
+      font-size: 0.95rem;
+    }
+
+    .profile-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .profile-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.55rem 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      border: 1px solid var(--card-border);
+      background: #21262d;
+      color: var(--heading);
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
+    .profile-btn:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .profile-btn.htb-btn {
+      border-color: rgba(159, 239, 0, 0.5);
+      color: var(--accent-htb);
+    }
+    .profile-btn.htb-btn:hover {
+      background: rgba(159, 239, 0, 0.1);
+      border-color: var(--accent-htb);
+    }
+
+    .profile-btn.linkedin-btn {
+      border-color: rgba(88, 166, 255, 0.5);
+      color: var(--accent);
+    }
+    .profile-btn.linkedin-btn:hover {
+      background: rgba(88, 166, 255, 0.1);
+      border-color: var(--accent);
+    }
+
+    /* 2-3 Line Concise Bio */
+    .short-bio {
+      font-size: 1.1rem;
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    .short-bio strong {
+      color: var(--heading);
+    }
+
+    /* Certifications Section */
+    .section-title {
+      font-size: 1.55rem;
+      color: var(--heading);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 1.75rem;
+      font-family: var(--font-mono);
+    }
+
+    /* Primary Offensive Certs (CPTS & CPSA) */
+    .main-certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Secondary Certs Grid */
+    .other-certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .cert-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .cert-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    .cert-card.featured-cpts {
+      border: 2px solid rgba(159, 239, 0, 0.6);
+      background: linear-gradient(180deg, rgba(159, 239, 0, 0.06) 0%, var(--card-bg) 100%);
+    }
+
+    .cert-card.featured-crest {
+      border: 2px solid rgba(56, 189, 248, 0.6);
+      background: linear-gradient(180deg, rgba(56, 189, 248, 0.06) 0%, var(--card-bg) 100%);
+    }
+
+    /* Badge Thumbnail Container */
+    .cert-thumb {
+      width: 96px;
+      height: 96px;
+      border-radius: 14px;
+      background: #0d1117;
+      border: 1px solid var(--card-border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    }
+
+    .cert-card.featured-cpts .cert-thumb,
+    .cert-card.featured-crest .cert-thumb {
+      width: 112px;
+      height: 112px;
+    }
+
+    .cert-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 8px;
+    }
+
+    .thumb-issuer {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.15rem;
+    }
+
+    .thumb-code {
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 1.35rem;
+      letter-spacing: 0.03em;
+    }
+
+    .thumb-sub {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .priority-pill {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    .pill-main-cpts {
+      background: rgba(159, 239, 0, 0.15);
+      color: var(--accent-htb);
+      border: 1px solid rgba(159, 239, 0, 0.4);
+    }
+
+    .pill-main-crest {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent-crest);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+    }
+
+    .pill-standard {
+      background: #21262d;
+      color: var(--text-muted);
+      border: 1px solid var(--card-border);
+    }
+
+    .cert-card h3 {
+      color: var(--heading);
+      font-size: 1.15rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .cert-card p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.45;
+    }
+
+    footer {
+      max-width: 960px;
+      margin: 4rem auto 0;
+      padding: 2rem 1.5rem 3rem;
+      border-top: 1px solid var(--card-border);
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .main-certs-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-inner">
+      <a href="index.html" class="brand">asish@returntoroot:~$</a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="articles.html">Articles</a>
+        <a href="about.html" class="active">About Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Concise Offensive Security Bio Card -->
+    <section class="about-card">
+      <div class="about-top">
+        <div class="about-name">
+          <h1>Asish K Sahadevan</h1>
+          <div class="subtitle">Offensive Security Specialist &amp; Sr. Solution Consultant</div>
+        </div>
+        <div class="profile-links">
+          <a href="https://www.linkedin.com/in/asish-k-sahadevan/" target="_blank" rel="noopener noreferrer" class="profile-btn linkedin-btn">
+            LinkedIn Profile ↗
+          </a>
+          <a href="https://app.hackthebox.com" target="_blank" rel="noopener noreferrer" class="profile-btn htb-btn">
+            Hack The Box Profile ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- 2-3 Lines of Work and Offensive Security Interests -->
+      <p class="short-bio">
+        I work as a <strong>Sr. Solution Consultant</strong> and offensive security practitioner specializing in adversary simulation, enterprise network penetration testing, and complex Active Directory exploitation. My core technical interests revolve around uncovering multi-tier attack paths, internal network pivoting, web application exploitation, and translating offensive tradecraft into actionable security posture improvements.
+      </p>
+    </section>
+
+    <!-- Certifications Section Ordered by Offensive Priority -->
+    <section>
+      <h2 class="section-title">Acquired Certifications</h2>
+      <p class="section-subtitle">// Ordered by Offensive Security Priority (HTB CPTS &rarr; CREST CPSA &rarr; INE eJPT &rarr; SecOps CNSP &rarr; SecOps CAP &rarr; RHCE)</p>
+
+      <!-- Main / Featured Offensive Certifications: 1. HTB CPTS & 2. CREST CPSA -->
+      <div class="main-certs-grid">
+        <!-- 1. HTB CPTS -->
+        <div class="cert-card featured-cpts">
+          <div class="cert-thumb" style="border-color: rgba(159, 239, 0, 0.5);">
+            <!-- Replace with <img src="assets/cpts.png" alt="HTB CPTS" /> if using local image file -->
+            <span class="thumb-issuer">HACK THE BOX</span>
+            <span class="thumb-code" style="color: #9fef00;">CPTS</span>
+            <span class="thumb-sub">OFFENSIVE</span>
+          </div>
+          <span class="priority-pill pill-main-cpts">Primary Offensive Credential</span>
+          <h3>HTB CPTS</h3>
+          <p>Certified Penetration Testing Specialist — Full-scope enterprise penetration testing, multi-subnet pivoting &amp; Active Directory exploitation.</p>
+        </div>
+
+        <!-- 2. CREST CPSA -->
+        <div class="cert-card featured-crest">
+          <div class="cert-thumb" style="border-color: rgba(56, 189, 248, 0.5);">
+            <!-- Replace with <img src="assets/cpsa.png" alt="CREST CPSA" /> if using local image file -->
+            <span class="thumb-issuer">CREST VERIFIED</span>
+            <span class="thumb-code" style="color: #38bdf8;">CPSA</span>
+            <span class="thumb-sub">ANALYST</span>
+          </div>
+          <span class="priority-pill pill-main-crest">Primary Offensive Credential</span>
+          <h3>CREST CPSA</h3>
+          <p>CREST Practitioner Security Analyst — Globally accredited offensive security methodology, infrastructure &amp; application assessment.</p>
+        </div>
+      </div>
+
+      <!-- Supporting Certifications in Exact Requested Order: 3. INE eJPT, 4. SecOps CNSP, 5. SecOps CAP, 6. RHCE -->
+      <div class="other-certs-grid">
+        <!-- 3. INE eJPT -->
+        <div class="cert-card">
+          <div class="cert-thumb" style="border-color: rgba(248, 81, 73, 0.45);">
+            <span class="thumb-issuer">INE SECURITY</span>
+            <span class="thumb-code" style="color: #ff7b72;">eJPT</span>
+            <span class="thumb-sub">PENTEST</span>
+          </div>
+          <span class="priority-pill pill-standard">Offensive Security</span>
+          <h3>INE eJPT</h3>
+          <p>Junior Penetration Tester — Practical network &amp; web vulnerability exploitation and routing.</p>
+        </div>
+
+        <!-- 4. SecOps CNSP -->
+        <div class="cert-card">
+          <div class="cert-thumb" style="border-color: rgba(88, 166, 255, 0.45);">
+            <span class="thumb-issuer">THE SECOPS GROUP</span>
+            <span class="thumb-code" style="color: #58a6ff;">CNSP</span>
+            <span class="thumb-sub">NETWORK SEC</span>
+          </div>
+          <span class="priority-pill pill-standard">Network Security</span>
+          <h3>SecOps CNSP</h3>
+          <p>Certified Network Security Practitioner — Network enumeration, protocol attacks &amp; perimeter security.</p>
+        </div>
+
+        <!-- 5. SecOps CAP -->
+        <div class="cert-card">
+          <div class="cert-thumb" style="border-color: rgba(210, 153, 34, 0.45);">
+            <span class="thumb-issuer">THE SECOPS GROUP</span>
+            <span class="thumb-code" style="color: #e3b341;">CAP</span>
+            <span class="thumb-sub">APPSEC</span>
+          </div>
+          <span class="priority-pill pill-standard">Application Security</span>
+          <h3>SecOps CAP</h3>
+          <p>Certified AppSec Practitioner — Web application vulnerabilities, OWASP Top 10 &amp; API security testing.</p>
+        </div>
+
+        <!-- 6. RHCE -->
+        <div class="cert-card">
+          <div class="cert-thumb" style="border-color: rgba(139, 148, 158, 0.4);">
+            <span class="thumb-issuer">RED HAT</span>
+            <span class="thumb-code" style="color: #c9d1d9;">RHCE</span>
+            <span class="thumb-sub">LINUX ENG</span>
+          </div>
+          <span class="priority-pill pill-standard">Systems Foundation</span>
+          <h3>RHCE</h3>
+          <p>Red Hat Certified Engineer — Enterprise Linux internals, system administration &amp; infrastructure automation.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>&copy; 2026 Cyber Realm • Offensive Security Portal by Asish K Sahadevan</div>
+    <div>returntoroot.github.io</div>
+  </footer>
+
+</body>
+</html>
+
+
+5. Standalone HTB CPTS Article (articles/htb-cpts-review.html)
+
+Updated with 2026 publication metadata, canonical URL for returntoroot.github.io, and matching terminal branding.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cracking the HTB CPTS | Asish K Sahadevan - Cyber Realm</title>
+  <meta name="description" content="In-depth review and preparation guide for the Hack The Box Certified Penetration Testing Specialist (CPTS) certification by Asish K Sahadevan." />
+  <link rel="canonical" href="https://returntoroot.github.io/articles/htb-cpts-review.html" />
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --card-border: #30363d;
+      --accent: #58a6ff;
+      --accent-green: #3fb950;
+      --text: #c9d1d9;
+      --text-muted: #8b949e;
+      --heading: #f0f6fc;
+      --code-bg: #0b0e14;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.65;
+      padding-bottom: 3rem;
+    }
+
+    header {
+      background: rgba(22, 27, 34, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--card-border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+    }
+
+    .brand {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--accent-green);
+      text-decoration: none;
+      font-size: 1.05rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 1.25rem;
+      font-size: 0.9rem;
+    }
+    .nav-links a:hover { color: var(--heading); }
+
+    .container {
+      max-width: 820px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .breadcrumbs {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+    .breadcrumbs a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .breadcrumbs a:hover { text-decoration: underline; }
+
+    .article-header {
+      padding-bottom: 1.75rem;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 2rem;
+    }
+
+    .article-title {
+      font-size: 2.3rem;
+      color: var(--heading);
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+
+    .article-meta {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+
+    .article-body h2 {
+      font-size: 1.5rem;
+      color: var(--heading);
+      margin: 2.25rem 0 0.75rem;
+      border-bottom: 1px solid #21262d;
+      padding-bottom: 0.4rem;
+    }
+
+    .article-body h3 {
+      font-size: 1.15rem;
+      color: var(--accent);
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    .article-body p, .article-body ul, .article-body ol {
+      margin-bottom: 1.25rem;
+    }
+
+    .article-body ul, .article-body ol {
+      padding-left: 1.5rem;
+    }
+
+    .article-body li {
+      margin-bottom: 0.35rem;
+    }
+
+    .callout {
+      background-color: var(--card-bg);
+      border-left: 4px solid var(--accent-green);
+      padding: 1.1rem 1.35rem;
+      margin: 1.5rem 0;
+      border-radius: 0 6px 6px 0;
+    }
+
+    code {
+      font-family: var(--font-mono);
+      background: #21262d;
+      padding: 0.15rem 0.35rem;
+      border-radius: 4px;
+      font-size: 0.88em;
+      color: #79c0ff;
+    }
+
+    .author-card {
+      margin-top: 3.5rem;
+      padding: 1.5rem;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .author-avatar {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #21262d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      color: var(--accent-green);
+      font-weight: bold;
+      font-size: 1.2rem;
+      border: 1px solid var(--card-border);
+      flex-shrink: 0;
+    }
+
+    .author-info h4 {
+      color: var(--heading);
+      font-size: 1.05rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .author-info .author-creds {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+
+    .author-info p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .back-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+    }
+
+    .back-links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .back-links a:hover { text-decoration: underline; }
+
+    footer {
+      max-width: 820px;
+      margin: 4rem auto 0;
+      padding: 2rem 1.5rem 0;
+      border-top: 1px solid var(--card-border);
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-inner">
+      <a href="../index.html" class="brand">asish@returntoroot:~$</a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../articles.html">Articles</a>
+        <a href="../about.html">About Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="breadcrumbs">
+      <a href="../index.html">Cyber Realm</a> / <a href="../articles.html">Articles</a> / <span>HTB CPTS Review</span>
+    </div>
+
+    <article>
+      <header class="article-header">
+        <h1 class="article-title">Cracking the HTB CPTS: My Journey, Exam Breakdown &amp; Key Takeaways</h1>
+        <div class="article-meta">
+          <span>Author: Asish K Sahadevan</span>
+          <span>Published: 2026</span>
+          <span>Exam: Hack The Box CPTS</span>
+          <span>Reading Time: 8 min</span>
+        </div>
+      </header>
+
+      <div class="article-body">
+        <p>
+          I recently completed and passed the <strong>Hack The Box Certified Penetration Testing Specialist (HTB CPTS)</strong> certification exam. In the offensive security community, CPTS has established itself as one of the most hands-on, realistic, and technically demanding enterprise penetration testing assessments available.
+        </p>
+
+        <div class="callout">
+          <strong>Key Insight:</strong> The CPTS exam moves far beyond simple flag capture. It is a full-scope corporate network engagement requiring structured methodology, multiple subnet pivots, deep Active Directory compromise, and delivery of a commercial-grade technical report.
+        </div>
+
+        <h2>1. Why CPTS Stands Apart</h2>
+        <p>
+          Unlike legacy 24-hour certification exams that simulate artificial time pressure, CPTS gives candidates <strong>10 full days of continuous lab access</strong>, followed by a dedicated window for writing and submitting the assessment report.
+        </p>
+        <ul>
+          <li><strong>True Multi-Tier Pivoting:</strong> The environment spans multiple non-routable subnets. Success requires fluid network routing using modern tooling rather than rudimentary port redirects.</li>
+          <li><strong>Enterprise Active Directory Paths:</strong> Targets are organized into authentic domain trees and forests, requiring realistic enumeration with BloodHound, privilege delegation analysis, and trust exploitation.</li>
+          <li><strong>The Report is Make-or-Break:</strong> Capturing flags only qualifies you for review; your final score depends on remediation guidance, CVSS 3.1 scoring, and step-by-step reproduction steps.</li>
+        </ul>
+
+        <h2>2. HTB Academy Preparation Path</h2>
+        <p>
+          The exam corresponds directly to the <em>Penetration Tester</em> job-role path on HTB Academy. Mastery of the following modules is essential:
+        </p>
+        <ul>
+          <li><strong>Pivoting, Tunneling &amp; Port Forwarding:</strong> Deep familiarity with <code>ligolo-ng</code>, <code>chisel</code>, SSH dynamic proxies, and SOCKS configuration.</li>
+          <li><strong>Active Directory Enumeration &amp; Attacks:</strong> AS-REP roasting, Kerberoasting, Unconstrained Delegation, ACL manipulation, and DCSync attacks.</li>
+          <li><strong>Web Exploitation &amp; File Inclusion:</strong> File upload bypasses, SQL injection, SSTI, and API authentication flaws.</li>
+        </ul>
+
+        <h2>3. Inside the Exam Experience</h2>
+        <h3>Phase 1: Initial Foothold &amp; Perimeter Enumeration</h3>
+        <p>
+          Targeting exposed web interfaces revealed configuration oversights and parameter vulnerabilities. Scripting manual verification proved far more reliable than generic automated scanners.
+        </p>
+
+        <h3>Phase 2: Pivoting with Ligolo-ng</h3>
+        <p>
+          Once internal hosts were reached, setting up <code>ligolo-ng</code> TUN interfaces was a game-changer. It allowed direct subnet routing from the attacking system, enabling native execution of tools like <code>nmap</code>, <code>netexec</code>, and <code>bloodhound-python</code> without SOCKS proxy latency.
+        </p>
+
+        <h3>Phase 3: Active Directory Exploitation</h3>
+        <p>
+          BloodHound data collection pinpointed a non-obvious permission path to a Domain Admin equivalent account. Combining service ticket manipulation with misconfigured access controls led to full domain takeover.
+        </p>
+
+        <h2>4. Actionable Advice for Aspirants</h2>
+        <ol>
+          <li><strong>Rely on Ligolo-ng:</strong> Practice multi-level double and triple pivots before starting your exam timer.</li>
+          <li><strong>Screenshot Every Action:</strong> Capture output showing IP addresses (<code>ipconfig</code> / <code>ifconfig</code>), user context (<code>whoami</code>), and timestamps on the spot.</li>
+          <li><strong>Maintain a Sustainable Rhythm:</strong> Ten days allows for regular sleep, mental resets, and thorough documentation.</li>
+          <li><strong>Draft Findings Simultaneously:</strong> Write finding descriptions and reproduction steps as you discover them rather than waiting until the end.</li>
+        </ol>
+
+        <div class="back-links">
+          <a href="../articles.html">&larr; Back to All Articles</a>
+          <a href="../about.html">About the Author &rarr;</a>
+        </div>
+      </div>
+
+      <div class="author-card">
+        <div class="author-avatar">AS</div>
+        <div class="author-info">
+          <h4>Asish K Sahadevan</h4>
+          <div class="author-creds">HTB CPTS | CREST CPSA | INE eJPT | SecOps CNSP | SecOps CAP | RHCE</div>
+          <p>Offensive Security Specialist &amp; Sr. Solution Consultant focusing on Active Directory exploitation, internal pivoting, and enterprise adversary simulation.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <footer>
+    <div>&copy; 2026 Cyber Realm • Offensive Security Portal by Asish K Sahadevan</div>
+    <div>returntoroot.github.io</div>
+  </footer>
+
+</body>
+</html>
