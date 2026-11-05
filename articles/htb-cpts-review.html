@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Road to HTB CPTS: 18 Weeks of Prep, Real-World Exam & SysReptor Guide | ReturnToRoot</title>
-  <meta name="description" content="My complete journey passing the Hack The Box Certified Penetration Testing Specialist (CPTS) exam (Sep 24 – Oct 2). Covering 18 weeks of prep, the 28-module Penetration Tester path, IppSec's Unofficial CPTS track, black-box pivoting, and SysReptor reporting." />
+  <title>Road to HTB CPTS: 18 Weeks of Prep, Real-World Exam Diary & SysReptor Guide | ReturnToRoot</title>
+  <meta name="description" content="My complete journey passing the Hack The Box Certified Penetration Testing Specialist (CPTS) exam (Sep 24 – Oct 2). Covering 28 modules (44d 2h), 18 weeks of prep, CherryTree checklists, IppSec's Unofficial CPTS machines, daily flag log, and Examiner's Feedback." />
   <link rel="canonical" href="https://returntoroot.github.io/articles/htb-cpts-review.html" />
   <style>
     :root {
@@ -15,7 +15,9 @@
       --accent: #58a6ff;
       --accent-green: #3fb950;
       --accent-htb: #9fef00;
+      --accent-purple: #a855f7;
       --accent-warn: #d29922;
+      --accent-danger: #f85149;
       --text: #c9d1d9;
       --text-muted: #8b949e;
       --heading: #f0f6fc;
@@ -170,6 +172,94 @@
       color: var(--text-muted);
     }
 
+    /* Official Certificate Visual Showcase */
+    .cert-showcase {
+      background: linear-gradient(135deg, #0b0716 0%, #131129 60%, #1c1036 100%);
+      border: 1px solid rgba(168, 85, 247, 0.45);
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .cert-showcase-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .htb-logo-text {
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      color: #f0f6fc;
+    }
+
+    .cert-id-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: #d8b4fe;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+    }
+
+    .cert-cpts-big {
+      font-family: var(--font-mono);
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: #a855f7;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .cert-cpts-sub {
+      font-size: 0.9rem;
+      color: #c9d1d9;
+      margin-bottom: 1.5rem;
+    }
+
+    .cert-holder-name {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.35rem;
+    }
+
+    .cert-holder-desc {
+      font-size: 0.9rem;
+      color: #9ca3af;
+      max-width: 520px;
+      margin-bottom: 1.5rem;
+    }
+
+    .cert-footer-meta {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(168, 85, 247, 0.25);
+      padding-top: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+
+    .cert-uploaded-img {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 1.25rem;
+      border: 1px solid var(--card-border);
+      display: block;
+    }
+
     /* Table of Contents */
     .toc-box {
       background: var(--card-bg);
@@ -277,6 +367,11 @@
       border-left-color: var(--accent-warn);
     }
 
+    .callout.danger {
+      border-left-color: var(--accent-danger);
+      background: rgba(248, 81, 73, 0.06);
+    }
+
     .callout-title {
       font-family: var(--font-mono);
       font-size: 0.83rem;
@@ -288,6 +383,10 @@
 
     .callout.warn .callout-title {
       color: var(--accent-warn);
+    }
+
+    .callout.danger .callout-title {
+      color: #ff7b72;
     }
 
     code {
@@ -363,6 +462,137 @@
       text-align: center;
     }
 
+    /* HTB Activity Heatmap Replica */
+    .heatmap-wrapper {
+      padding: 1.5rem;
+      background: #101622;
+      overflow-x: auto;
+    }
+
+    .heatmap-months {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(54px, 1fr));
+      gap: 0.45rem;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: #8b949e;
+      text-align: center;
+      margin-bottom: 0.6rem;
+    }
+
+    .heatmap-row {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(54px, 1fr));
+      gap: 0.45rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .hm-cell {
+      height: 18px;
+      border-radius: 4px;
+      background: #1a2232;
+    }
+    .hm-cell.lvl-1 { background: #263818; }
+    .hm-cell.lvl-2 { background: #3b5a1e; }
+    .hm-cell.lvl-3 { background: #5a8c27; }
+    .hm-cell.lvl-4 { background: #9fef00; box-shadow: 0 0 8px rgba(159, 239, 0, 0.35); }
+    .hm-cell.empty { background: transparent; }
+
+    /* Examiner Feedback Verbatim Box */
+    .feedback-card {
+      background: #131924;
+      padding: 1.65rem 1.85rem;
+      color: #c9d1d9;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .feedback-card h4 {
+      color: #ffffff;
+      font-size: 1.15rem;
+      margin-bottom: 1rem;
+    }
+
+    .feedback-card p {
+      margin-bottom: 1rem;
+    }
+
+    .feedback-card ul {
+      margin-bottom: 1rem;
+      padding-left: 1.4rem;
+    }
+
+    /* Flag Progress Table / Diary */
+    .flag-table-wrap {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+    }
+
+    .flag-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      background: var(--card-bg);
+    }
+
+    .flag-table th,
+    .flag-table td {
+      padding: 0.85rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .flag-table th {
+      background: #0d1117;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .flag-date {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--heading);
+      white-space: nowrap;
+    }
+
+    .flag-pill {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+    }
+
+    .flag-pill.found {
+      background: rgba(159, 239, 0, 0.14);
+      color: var(--accent-htb);
+      border: 1px solid rgba(159, 239, 0, 0.4);
+    }
+
+    .flag-pill.hardest {
+      background: rgba(248, 81, 73, 0.18);
+      color: #ff7b72;
+      border: 1px solid rgba(248, 81, 73, 0.5);
+    }
+
+    .flag-pill.zero {
+      background: rgba(139, 148, 158, 0.12);
+      color: var(--text-muted);
+      border: 1px solid rgba(139, 148, 158, 0.3);
+    }
+
+    .flag-pill.report {
+      background: rgba(88, 166, 255, 0.15);
+      color: var(--accent);
+      border: 1px solid rgba(88, 166, 255, 0.4);
+    }
+
     /* SysReptor Mockup Split View */
     .sysreptor-mock {
       display: grid;
@@ -397,49 +627,6 @@
       border-radius: 4px;
       font-weight: 700;
       margin-bottom: 0.45rem;
-    }
-
-    /* Timeline Table / Cards */
-    .timeline-box {
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-      margin: 1.5rem 0;
-    }
-
-    .timeline-item {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 8px;
-      padding: 1.1rem 1.35rem;
-      display: grid;
-      grid-template-columns: 155px 1fr;
-      gap: 1rem;
-      align-items: start;
-    }
-
-    .timeline-date {
-      font-family: var(--font-mono);
-      font-size: 0.84rem;
-      font-weight: 700;
-      color: var(--accent-htb);
-      background: rgba(159, 239, 0, 0.08);
-      border: 1px solid rgba(159, 239, 0, 0.3);
-      padding: 0.3rem 0.6rem;
-      border-radius: 6px;
-      text-align: center;
-    }
-
-    .timeline-desc h4 {
-      color: var(--heading);
-      font-size: 1rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .timeline-desc p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-bottom: 0;
     }
 
     /* Network Topology Flow */
@@ -641,7 +828,6 @@
     @media (max-width: 680px) {
       .sysreptor-mock { grid-template-columns: 1fr; }
       .sys-pane.editor { border-right: none; border-bottom: 1px solid var(--card-border); }
-      .timeline-item { grid-template-columns: 1fr; }
       .resource-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -667,40 +853,61 @@
     <article>
       <header class="article-header">
         <span class="badge-pill">Offensive Security Certification Review</span>
-        <h1 class="article-title">Road to HTB CPTS: 18 Weeks of Prep, Real-World Exam Experience &amp; SysReptor Reporting Guide</h1>
+        <h1 class="article-title">Road to HTB CPTS: 18 Weeks of Prep, Real-World Exam Diary &amp; SysReptor Reporting Guide</h1>
         <p class="article-subtitle">
-          How I prepared for and conquered the Hack The Box Certified Penetration Testing Specialist (CPTS) exam—from completing the 28-module Penetration Tester Path and IppSec's Unofficial CPTS playlist to compromising a multi-domain corporate network between September 24 and October 2.
+          How I prepared for and passed the Hack The Box Certified Penetration Testing Specialist (CPTS) exam—from 18 weeks of training across the 28-module Penetration Tester Path (44 days, 2 hours) and IppSec's Unofficial CPTS playlist to my Sep 24 – Oct 2 exam run, CherryTree checklists, and earning exceptional Examiner Feedback.
         </p>
         <div class="article-meta">
           <span>Author: Asish K Sahadevan</span>
           <span>Exam Run: Sep 24 – Oct 2</span>
-          <span>Published: 2026</span>
-          <span>Reading Time: 15 min</span>
+          <span>Certificate ID: HTBCERT-850BE4F612</span>
+          <span>Reading Time: 16 min</span>
         </div>
       </header>
 
       <!-- Key Metrics Dashboard -->
       <div class="stats-grid">
         <div class="stat-box">
-          <div class="stat-label">Academy Curriculum</div>
-          <div class="stat-value">28 Modules</div>
-          <div class="stat-sub">~49 Days Estimated Path</div>
+          <div class="stat-label">28 Path Modules</div>
+          <div class="stat-value">44d 02h</div>
+          <div class="stat-sub">Official HTB Learning Time</div>
         </div>
         <div class="stat-box">
-          <div class="stat-label">My Preparation</div>
-          <div class="stat-value">~18 Weeks</div>
-          <div class="stat-sub">Path + IppSec CPTS Track</div>
+          <div class="stat-label">My Total Prep</div>
+          <div class="stat-value">18 Weeks</div>
+          <div class="stat-sub">Modules + Labs + IppSec Track</div>
         </div>
         <div class="stat-box">
-          <div class="stat-label">My Exam Window</div>
+          <div class="stat-label">Exam Window</div>
           <div class="stat-value">Sep 24 – Oct 2</div>
-          <div class="stat-sub">9 Days (Labs + Final Report)</div>
+          <div class="stat-sub">12 Flags (85 Pts) + Report</div>
         </div>
         <div class="stat-box">
-          <div class="stat-label">Passing Criteria</div>
-          <div class="stat-value">12 / 14 Flags</div>
-          <div class="stat-sub">+ Commercial Report (SysReptor)</div>
+          <div class="stat-label">Core Toolstack</div>
+          <div class="stat-value">CherryTree</div>
+          <div class="stat-sub">+ SysReptor &amp; Ligolo-ng</div>
         </div>
+      </div>
+
+      <!-- Official HTB CPTS Certificate Card + Image Container -->
+      <div class="cert-showcase">
+        <div class="cert-showcase-top">
+          <div class="htb-logo-text">&#x2B22; HACKTHEBOX</div>
+          <div class="cert-id-tag">CERT ID: HTBCERT-850BE4F612</div>
+        </div>
+        <div class="cert-cpts-big">CPTS</div>
+        <div class="cert-cpts-sub">Certified Penetration Testing Specialist</div>
+        <div class="cert-holder-name">ASISH K S</div>
+        <div class="cert-holder-desc">
+          Is officially an HTB Certified Penetration Testing Specialist upon successfully completing all Hack The Box certification exam requirements.
+        </div>
+        <div class="cert-footer-meta">
+          <div><span style="color:#9ca3af;">DATE EARNED:</span> <strong style="color:#fff;">02 Nov 2026</strong></div>
+          <div><span style="color:#9ca3af;">EXAM SCORE:</span> <strong style="color:#9fef00;">85 Points (12/14 Flags)</strong></div>
+          <div><span style="color:#9ca3af;">VERIFIED BY:</span> <strong style="color:#fff;">Charalampos Pylarinos &amp; Dimitrios Bougioukas</strong></div>
+        </div>
+        <!-- Automatically displays your uploaded certificate image if placed at ../assets/cpts-certificate.png -->
+        <img src="../assets/cpts-certificate.png" alt="HTB Certified Penetration Testing Specialist Certificate - Asish K S" class="cert-uploaded-img" onerror="this.style.display='none'" />
       </div>
 
       <!-- Table of Contents -->
@@ -708,12 +915,12 @@
         <div class="toc-title">// Table of Contents</div>
         <ul class="toc-list">
           <li><a href="#intro">01. Introduction: Why HTB CPTS Stands Out</a></li>
-          <li><a href="#prep-path">02. 18 Weeks of Prep: The 28-Module (~49-Day) Path</a></li>
-          <li><a href="#ippsec-prep">03. Leveling Up with IppSec &amp; The Unofficial CPTS Track</a></li>
+          <li><a href="#prep-path">02. 18 Weeks of Prep: The 28-Module (44d 2h) Path &amp; CherryTree</a></li>
+          <li><a href="#ippsec-prep">03. IppSec's Unofficial CPTS Machines &amp; Why AEN Is NOT the Exam</a></li>
           <li><a href="#exam-pattern">04. Exam Pattern: Simulating a Real-World Black-Box Pentest</a></li>
-          <li><a href="#exam-timeline">05. My Exam Diary (Sep 24 – Oct 2): From External IP to Domain Admin</a></li>
-          <li><a href="#sysreptor">06. Writing a Commercial-Grade Report with SysReptor</a></li>
-          <li><a href="#tips-tricks">07. Battle-Tested Tips &amp; Tricks to Pass CPTS</a></li>
+          <li><a href="#exam-timeline">05. My Exam Diary &amp; Flag Log (Sep 24 – Oct 2): Conquering Flag 8</a></li>
+          <li><a href="#sysreptor">06. Commercial-Grade Reporting with SysReptor &amp; Examiner's Feedback</a></li>
+          <li><a href="#tips-tricks">07. Battle-Tested Tips, Checklists &amp; The Golden Rule</a></li>
           <li><a href="#additional-reading">08. Additional Reading, Practice &amp; Community References</a></li>
         </ul>
       </nav>
@@ -723,13 +930,22 @@
         <!-- Section 1 -->
         <h2 id="intro"><span class="sec-num">01</span> Introduction: Why HTB CPTS Stands Out</h2>
         <p>
-          Earning the <strong>Hack The Box Certified Penetration Testing Specialist (HTB CPTS)</strong> certification has been one of the most rewarding milestones in my offensive security journey. While many industry certifications test isolated exploit primitives or place candidates under artificial 24-hour timers, CPTS is built from the ground up to evaluate whether you can operate as a <strong>full-scope enterprise penetration tester</strong>.
+          Earning the <strong>Hack The Box Certified Penetration Testing Specialist (HTB CPTS)</strong> certification has been one of the most rewarding milestones in my offensive security journey. Unlike exams that test isolated exploit primitives or rely on artificial 24-hour timers, CPTS is engineered to validate whether you can operate as a <strong>real-world enterprise penetration tester</strong>.
         </p>
         <p>
-          There are no isolated CTF boxes with random hints here. Instead, you are dropped into a cohesive, interconnected corporate environment where every credential, configuration file, service ticket, and network route matters. Passing requires both deep technical execution across web, Linux, Windows, and Active Directory targets and the ability to communicate every finding in a <strong>commercial-grade penetration testing report</strong>.
+          There are no isolated CTF boxes with artificial hints. Instead, you are placed into the shoes of a penetration tester dropped against an interconnected corporate environment where every credential, configuration file, service ticket, and network route matters. Passing demands both technical execution across web, Linux, Windows, and Active Directory targets and the ability to deliver an <strong>exceptional commercial-grade penetration testing report</strong>.
         </p>
 
-        <!-- Visual Screenshot Frame 1: Certification Pass / Terminal Verification -->
+        <!-- Section 2 -->
+        <h2 id="prep-path"><span class="sec-num">02</span> 18 Weeks of Prep: The 28-Module (44d 2h) Path &amp; CherryTree Checklists</h2>
+        <p>
+          To unlock the CPTS exam voucher, you must complete <strong>100% of the Penetration Tester Job-Role Path</strong> on HTB Academy. The path comprises <strong>28 comprehensive modules</strong> with an official estimated learning time of <strong>44 days and 2 hours</strong>.
+        </p>
+        <p>
+          However, simply reading the modules is not enough. Inclusive of completing all 28 training modules, solving every hands-on skill assessment, practicing labs, and working through <strong>IppSec's Unofficial CPTS playlist</strong>, it took me <strong>18 weeks</strong> of consistent preparation to get exam-ready.
+        </p>
+
+        <!-- HTB 18 Weeks Active Heatmap Screenshot Container -->
         <figure class="screenshot-frame">
           <div class="window-bar">
             <div class="window-dots">
@@ -737,167 +953,206 @@
               <span class="dot yellow"></span>
               <span class="dot green"></span>
             </div>
-            <div class="window-title">htb-academy://certifications/cpts-verification — asishsahadev</div>
+            <div class="window-title">HTB Academy &amp; Lab Activity Streak — 18 Weeks Active Preparation</div>
             <div></div>
           </div>
-          <!-- Note: If you upload your own certificate screenshot to ../assets/cpts-certificate.png, you can uncomment the <img> tag below -->
-          <!-- <img src="../assets/cpts-certificate.png" alt="HTB CPTS Certification Achievement Screenshot" style="width:100%; display:block;" /> -->
-          <div class="terminal-content">
-<pre><span class="term-cmd">asishsahadev@returnroot:~$</span> ./verify-certification --cert "HTB-CPTS" --candidate "Asish K Sahadevan"
-<span class="term-info">[*]</span> Connecting to Hack The Box Academy Credential Verification Service...
-<span class="term-info">[*]</span> Prerequisites Verified : Penetration Tester Job-Role Path (28/28 Modules | 100% Complete)
-<span class="term-info">[*]</span> Engagement Window      : September 24 – October 2 (9 Days Total Execution &amp; Reporting)
-<span class="term-info">[*]</span> Network Compromise     : External Perimeter (DMZ) &rarr; Internal Subnets &rarr; Multi-Domain AD Forest
-<span class="term-info">[*]</span> Report Deliverable     : Commercial-Grade Assessment compiled via SysReptor
-<span class="term-highlight">[+] STATUS: CERTIFIED PENETRATION TESTING SPECIALIST (HTB CPTS) — PASSED</span></pre>
+          <!-- Displays your uploaded heatmap screenshot if placed at ../assets/htb-weeks-active.png -->
+          <img src="../assets/htb-weeks-active.png" alt="HTB 18 Weeks Active Streak Heatmap" style="width:100%; display:block;" onerror="this.style.display='none'" />
+          <div class="heatmap-wrapper">
+            <div class="heatmap-months">
+              <span>Dec</span><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span>
+            </div>
+            <div class="heatmap-row">
+              <span class="hm-cell"></span><span class="hm-cell"></span><span class="hm-cell"></span><span class="hm-cell"></span><span class="hm-cell lvl-1"></span><span class="hm-cell"></span><span class="hm-cell lvl-1"></span><span class="hm-cell lvl-2"></span><span class="hm-cell lvl-2"></span><span class="hm-cell lvl-3"></span><span class="hm-cell"></span><span class="hm-cell"></span>
+            </div>
+            <div class="heatmap-row">
+              <span class="hm-cell"></span><span class="hm-cell"></span><span class="hm-cell"></span><span class="hm-cell"></span><span class="hm-cell"></span><span class="hm-cell"></span><span class="hm-cell"></span><span class="hm-cell lvl-2"></span><span class="hm-cell lvl-1"></span><span class="hm-cell lvl-4"></span><span class="hm-cell"></span><span class="hm-cell"></span>
+            </div>
+            <div class="heatmap-row">
+              <span class="hm-cell"></span><span class="hm-cell"></span><span class="hm-cell"></span><span class="hm-cell"></span><span class="hm-cell"></span><span class="hm-cell"></span><span class="hm-cell lvl-1"></span><span class="hm-cell lvl-1"></span><span class="hm-cell lvl-1"></span><span class="hm-cell lvl-3"></span><span class="hm-cell"></span><span class="hm-cell empty"></span>
+            </div>
+            <div class="heatmap-row">
+              <span class="hm-cell"></span><span class="hm-cell"></span><span class="hm-cell"></span><span class="hm-cell"></span><span class="hm-cell"></span><span class="hm-cell"></span><span class="hm-cell lvl-1"></span><span class="hm-cell lvl-2"></span><span class="hm-cell lvl-2"></span><span class="hm-cell lvl-2"></span><span class="hm-cell"></span><span class="hm-cell empty"></span>
+            </div>
+            <div class="heatmap-row">
+              <span class="hm-cell empty"></span><span class="hm-cell empty"></span><span class="hm-cell empty"></span><span class="hm-cell"></span><span class="hm-cell empty"></span><span class="hm-cell lvl-1"></span><span class="hm-cell empty"></span><span class="hm-cell empty"></span><span class="hm-cell lvl-1"></span><span class="hm-cell empty"></span><span class="hm-cell empty"></span><span class="hm-cell empty"></span>
+            </div>
           </div>
           <figcaption class="screenshot-caption">
-            Figure 1: HTB CPTS Certification Summary — 18 weeks of preparation culminating in my Sep 24 – Oct 2 exam run.
+            HTB Activity Heatmap: 18 weeks of steady preparation across the 28-module Penetration Tester Path and practice labs leading up to September.
           </figcaption>
         </figure>
 
-        <!-- Section 2 -->
-        <h2 id="prep-path"><span class="sec-num">02</span> 18 Weeks of Prep: The 28-Module (~49-Day) Penetration Tester Path</h2>
+        <h3>Note-Taking with CherryTree &amp; Building Your Own Checklist</h3>
         <p>
-          Before you can even unlock the CPTS exam voucher, Hack The Box requires <strong>100% completion of the Penetration Tester Job-Role Path</strong> on HTB Academy. On paper, HTB Academy estimates this learning path at roughly <strong>~49 days</strong> of continuous training across <strong>28 densely packed modules</strong>.
+          Throughout the 44 days and 2 hours of curriculum content, I used <strong>CherryTree</strong> as my dedicated hierarchical note-taking application. Having a fast, tree-structured notebook allowed me to organize every module by service, port, and attack phase.
         </p>
         <p>
-          In reality, if you are balancing full-time consulting work while building personal cheat sheets, taking thorough notes, and solving every skill assessment without rushing, it takes significantly longer. I dedicated around <strong>18 weeks</strong> to complete the path and solidify my methodology.
+          More importantly: <strong>you need to build your own personal checklist</strong>. Copying someone else's cheat sheet won't help you when you're staring at an unfamiliar internal subnet on day 4 of the exam. Inside CherryTree, I maintained my own battle-tested checklists for:
         </p>
-
-        <div class="callout">
-          <div class="callout-title">The Golden Rule of CPTS Preparation</div>
-          Everything tested on the CPTS exam is taught inside the 28 modules of the Penetration Tester Path. However, the exam will require you to <strong>chain multiple modules together</strong> across pivoted subnets without telling you which module applies. Your personal notes are your single greatest weapon.
-        </div>
-
-        <h3>Core Modules That Carry the Highest Weight on the Exam</h3>
         <ul>
           <li>
-            <strong>Information Gathering — Web &amp; Infrastructure:</strong> Subdomain and virtual host fuzzing (<code>ffuf</code>, <code>gobuster</code>), DNS zone transfers, SNMP enumeration, and service banner analysis. If you miss a vhost on day one, you can stall for hours.
+            <strong>External &amp; Web Enumeration Checklist:</strong> Port scans, virtual host &amp; subdomain fuzzing (<code>ffuf</code>), directory brute-forcing, parameter tampering, LFI/RFI, SQLi, file upload bypasses, and CMS/framework checks.
           </li>
           <li>
-            <strong>Web Application Exploitation Modules:</strong> Covering <em>Attacking Web Applications with Ffuf</em>, <em>SQLMap Essentials</em>, <em>Cross-Site Scripting (XSS)</em>, <em>File Inclusion (LFI/RFI)</em>, <em>Command Injections</em>, <em>File Upload Attacks</em>, and <em>Attacking Common Applications</em> (Tomcat, Jenkins, Drupal, WordPress, GitLab, PRTG).
+            <strong>Pivoting &amp; Internal Routing Checklist:</strong> Exact copy-paste commands for setting up <code>ligolo-ng</code> TUN interfaces, single/double/triple pivot listeners, and internal port forwards.
           </li>
           <li>
-            <strong>Pivoting, Tunneling, and Port Forwarding:</strong> Arguably the backbone of the entire exam. While the module covers SSH dynamic port forwarding, <code>sshuttle</code>, <code>chisel</code>, and <code>socat</code>, supplementing this module with <strong><code>ligolo-ng</code></strong> (for TUN-interface routing across double and triple pivots) makes internal enumeration exponentially smoother.
+            <strong>Active Directory Checklist:</strong> Unauthenticated enumeration, BloodHound collection, Kerberoasting, AS-REP Roasting, password spraying, SMB/RPC share hunting, ACL/ACE abuse (<code>GenericAll</code>, <code>WriteDacl</code>, <code>ForceChangePassword</code>), Kerberos Delegation, and Domain Trust abuse.
           </li>
           <li>
-            <strong>Active Directory Enumeration &amp; Attacks:</strong> The heavyweight module of the path. You must be completely fluent in BloodHound / SharpHound analysis, Kerberoasting, AS-REP Roasting, Pass-the-Hash, Pass-the-Ticket, Overpass-the-Hash, ACL/ACE abuse (<code>GenericAll</code>, <code>GenericWrite</code>, <code>WriteDacl</code>, <code>ForceChangePassword</code>), GPO abuse, Kerberos delegation (Unconstrained, Constrained, and RBCD), and Domain Trust attacks (Child-to-Parent / ExtraSids and Cross-Forest trusts).
-          </li>
-          <li>
-            <strong>Linux &amp; Windows Privilege Escalation:</strong> Service binary hijacking, <code>SeImpersonatePrivilege</code> (PrintSpoofer / GodPotato), UAC bypasses, scheduled tasks, SUID binaries, capabilities, cron jobs, kernel exploits, and credential hunting in configuration files and PowerShell history.
-          </li>
-          <li>
-            <strong>Documentation &amp; Reporting:</strong> Do not skip or skim this module. HTB graders evaluate your final report against the exact standards, tone, and structure outlined here.
-          </li>
-          <li>
-            <strong>Attacking Enterprise Networks (AEN):</strong> The final capstone module is essentially a <strong>mini-CPTS exam</strong>. Treat AEN as a full dress rehearsal: solve it blind without walkthroughs, practice your multi-hop pivots, and draft a practice report in SysReptor as you go.
+            <strong>Post-Exploitation &amp; Privesc Checklist:</strong> Every place to hunt for credentials on compromised Linux and Windows hosts (config files, databases, PowerShell history, scheduled tasks, registry keys, SUID/capabilities, and token privileges like <code>SeImpersonatePrivilege</code>).
           </li>
         </ul>
 
         <!-- Section 3 -->
-        <h2 id="ippsec-prep"><span class="sec-num">03</span> Leveling Up with IppSec &amp; The Unofficial CPTS Track</h2>
+        <h2 id="ippsec-prep"><span class="sec-num">03</span> IppSec's Unofficial CPTS Machines &amp; Why AEN Is NOT the Exam</h2>
         <p>
-          While HTB Academy modules teach you specific vulnerabilities in a structured way, you already have a subtle hint in Academy labs because you know the title of the module you are currently studying. In a real black-box exam, nobody tells you whether a target is vulnerable to Deserialization, SQLi, or Kerberos Delegation.
+          When you study a module inside HTB Academy, you inherently have a hint because you know the topic of that module. To train for a true black-box environment, I spent a significant portion of my 18-week preparation practicing on <strong>IppSec's Unofficial CPTS Prep Playlist</strong> and using <a href="https://ippsec.rocks/" target="_blank" rel="noopener noreferrer">ippsec.rocks</a>.
         </p>
         <p>
-          To bridge that gap during my 18-week preparation, I leaned heavily on <strong>IppSec</strong>:
+          IppSec has curated a playlist of Unofficial CPTS machines on Hack The Box that cover the exact mindset needed for the exam. Watching his walkthroughs after solving (or getting stuck on) a machine is invaluable—you learn <strong>his different enumeration techniques</strong>, how he validates assumptions rapidly, how he recovers when an exploit fails, and how he spots subtle misconfigurations that automated scanners miss.
         </p>
-        <ol>
-          <li>
-            <strong>The Unofficial CPTS Prep Playlist by IppSec:</strong> Working through IppSec's curated list of Hack The Box machines tailored for CPTS candidates trained my brain to transition from port scans to web footholds and Active Directory privesc without module prompts.
-          </li>
-          <li>
-            <strong>Using <a href="https://ippsec.rocks/" target="_blank" rel="noopener noreferrer">ippsec.rocks</a> as an Interactive Knowledge Base:</strong> Whenever I encountered a tool, protocol, or attack vector in the Academy modules that felt clunky—such as silver tickets, ADCS / ACL abuse, or pivoting edge cases—I searched the keyword on <code>ippsec.rocks</code>. Jumping directly to the exact timestamp in IppSec's videos to watch how he troubleshoots broken shells and enumerates live targets accelerated my learning curve tremendously.
-          </li>
-        </ol>
+
+        <div class="callout danger">
+          <div class="callout-title">Critical Reality Check: AEN Is NOT the Exam!</div>
+          A common misconception in the community is treating the final Academy module—<em>Attacking Enterprise Networks (AEN)</em>—as an exact replica of the exam. <strong>AEN is NOT the exam!</strong> While AEN is great for practicing how to chain modules together, <strong>the actual CPTS exam is very different and significantly more difficult</strong>. Do not assume that cruising through AEN with hints means you can coast through the exam—expect deeper enumeration requirements, tougher rabbit holes, and much more complex multi-hop chains on the real exam.
+        </div>
 
         <!-- Section 4 -->
         <h2 id="exam-pattern"><span class="sec-num">04</span> Exam Pattern: Simulating a Real-World Black-Box Pentest</h2>
         <p>
-          What makes the HTB CPTS exam special is that <strong>it does not feel like a CTF—it simulates a real-world commercial penetration test where you are the lead tester</strong>.
+          The HTB CPTS exam is designed to <strong>simulate a real-world commercial penetration test with you as the lead penetration tester</strong>.
         </p>
         <p>
-          When you click "Start Exam", you receive a formal engagement letter and Rules of Engagement (RoE) from a fictional client. You are provided with <strong>only an external IP address and a domain name</strong>—nothing else.
+          When your exam begins, you receive a formal Letter of Engagement and Scope document. You are handed <strong>only an external IP address and a domain name</strong>—and your objective is to go all the way from the external perimeter deep inside the internal corporate network.
         </p>
 
         <!-- Visual Topology Diagram -->
         <div class="topology-flow">
           <div class="topo-node">
-            <strong>[Attacker VPN]</strong>
-            tun0 Interface<br/>External Consultant
+            <strong>[External Tester]</strong>
+            Given Only External IP<br/>&amp; Domain Name
           </div>
           <div class="topo-arrow">&rarr;</div>
           <div class="topo-node">
-            <strong>[External IP / DMZ]</strong>
-            Web &amp; Perimeter<br/>Initial Foothold
+            <strong>[Perimeter / DMZ]</strong>
+            Web &amp; VHost Recon<br/>Initial Foothold
           </div>
           <div class="topo-arrow">&rarr;</div>
           <div class="topo-node">
-            <strong>[Internal Subnet 1]</strong>
-            Ligolo-ng Pivot #1<br/>AD Domain Foothold
+            <strong>[Internal Network 1]</strong>
+            Ligolo-ng Pivot #1<br/>AD Enumeration
           </div>
           <div class="topo-arrow">&rarr;</div>
           <div class="topo-node">
-            <strong>[Internal Subnet 2+]</strong>
-            Ligolo-ng Pivot #2<br/>Cross-Domain / DC
+            <strong>[Deep Internal Net]</strong>
+            Multi-Hop Pivot<br/>Full Domain Compromise
           </div>
         </div>
 
-        <h3>How the Engagement Unfolds</h3>
         <ul>
           <li>
-            <strong>Starting at the Perimeter:</strong> Armed with just that external IP and domain name, you perform black-box external reconnaissance—enumerating ports, virtual hosts, web applications, and public services to breach the DMZ.
+            <strong>External-to-Internal Progression:</strong> Starting from the single external IP and domain name, you must enumerate public-facing web applications and services, breach the perimeter, discover dual-homed network interfaces, and tunnel your traffic into isolated internal subnets.
           </li>
           <li>
-            <strong>Going All the Way Inside the Internal Network:</strong> Compromising the external host is just the entry ticket. Once inside, you discover dual-homed interfaces pointing to non-routable internal subnets. From there, you must establish network pivots, harvest credentials, enumerate internal Active Directory domains, move laterally across workstations and servers, and escalate privileges all the way to full domain compromise.
+            <strong>10 Days Total Window:</strong> You are given <strong>10 days</strong> to perform the assessment and submit your commercial-grade report.
           </li>
           <li>
-            <strong>Time &amp; Scoring Format:</strong> You get <strong>10 full days</strong> (240 hours) for both hands-on exploitation and submitting your report. There are <strong>14 flags</strong> distributed across the network, and you must capture at least <strong>12 out of 14 flags</strong> and achieve a passing score on your commercial report to earn the certification.
+            <strong>Passing Threshold:</strong> There are <strong>14 flags</strong> across the environment. You must capture at least <strong>12 out of 14 flags</strong> (85 points) and submit a report that meets HTB's strict commercial grading standards.
           </li>
         </ul>
 
         <!-- Section 5 -->
-        <h2 id="exam-timeline"><span class="sec-num">05</span> My Exam Diary (Sep 24 – Oct 2): From External IP to Domain Admin</h2>
+        <h2 id="exam-timeline"><span class="sec-num">05</span> My Exam Diary &amp; Flag Log (Sep 24 – Oct 2): Conquering Flag 8</h2>
         <p>
-          I scheduled my exam to start on <strong>September 24</strong> and officially wrapped up and submitted my final report on <strong>October 2</strong>—completing the entire engagement and report in <strong>9 days</strong>. Having a structured daily rhythm kept me sharp and prevented burnout.
+          I started my exam on <strong>September 24</strong> and completed the entire engagement—including the final commercial report submission—on <strong>October 2</strong>.
+        </p>
+        <p>
+          To give a realistic picture of what the emotional and technical rollercoaster of CPTS looks like, here is my exact day-by-day <strong>Flags Found Diary</strong>:
         </p>
 
-        <div class="timeline-box">
-          <div class="timeline-item">
-            <div class="timeline-date">Sep 24 (Day 1)</div>
-            <div class="timeline-desc">
-              <h4>Engagement Kickoff &amp; Perimeter Breach</h4>
-              <p>Started the exam, reviewed the RoE scope carefully, initialized my SysReptor project and Obsidian workspace, and began enumerating the provided external IP and domain name. Discovered hidden virtual hosts and chained web vulnerabilities to gain my first foothold inside the DMZ.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-date">Sep 25 – 26 (Days 2–3)</div>
-            <div class="timeline-desc">
-              <h4>First Internal Pivot &amp; Initial Active Directory Enumeration</h4>
-              <p>Escalated privileges on the perimeter host, discovered internal network interfaces, and established a clean <code>ligolo-ng</code> tunnel into the first internal subnet. Ran internal scans, collected BloodHound data, and began mapping Active Directory users, shares, and service accounts.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-date">Sep 27 – 29 (Days 4–6)</div>
-            <div class="timeline-desc">
-              <h4>Deep Internal Pivoting, Lateral Movement &amp; Domain Escalation</h4>
-              <p>Set up multi-hop <code>ligolo-ng</code> listeners to reach deeper isolated subnets. Leveraged credential reuse, ACL misconfigurations, Kerberos delegation paths, and privilege escalation vectors across both Windows and Linux hosts—steadily progressing past the 12-flag passing threshold.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-date">Sep 30 – Oct 2 (Days 7–9)</div>
-            <div class="timeline-desc">
-              <h4>Verification, Evidence Audit &amp; Final SysReptor Report Submission</h4>
-              <p>Re-verified every reproduction step from scratch to ensure zero missing screenshots or command outputs. Polished the Executive Summary, CVSS v3.1 scores, attack path narrative, and remediation guidance in SysReptor, compiled the final PDF, and submitted on <strong>October 2</strong>.</p>
-            </div>
-          </div>
+        <div class="flag-table-wrap">
+          <table class="flag-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Flags Captured</th>
+                <th>Cumulative</th>
+                <th>Engagement Notes &amp; Key Milestones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="flag-date">09-24 (Part 1)</td>
+                <td><span class="flag-pill zero">0 Flags</span></td>
+                <td>0 / 14</td>
+                <td>Exam kickoff. Initial enumeration against the external IP and domain name. Mapping ports, directories, and virtual hosts using my CherryTree checklist.</td>
+              </tr>
+              <tr>
+                <td class="flag-date">09-24 (Part 2)</td>
+                <td><span class="flag-pill found">Flag 1</span></td>
+                <td>1 / 14</td>
+                <td>Breakthrough on the perimeter! Chained our initial web findings to compromise the external foothold and secured <strong>Flag 1</strong> before wrapping up Day 1.</td>
+              </tr>
+              <tr>
+                <td class="flag-date">09-25</td>
+                <td><span class="flag-pill found">Flag 2, Flag 3</span></td>
+                <td>3 / 14</td>
+                <td>Escalated privileges, established the first <code>ligolo-ng</code> tunnel into the internal network, and captured <strong>Flags 2 and 3</strong>.</td>
+              </tr>
+              <tr>
+                <td class="flag-date">09-26</td>
+                <td><span class="flag-pill found">Flag 4, 5, 6, 7</span></td>
+                <td>7 / 14</td>
+                <td>Huge momentum day! Deep Active Directory enumeration, credential pillaging, and lateral movement unlocked four flags in a single day (<strong>Flags 4, 5, 6, and 7</strong>). Halfway there in 3 days!</td>
+              </tr>
+              <tr>
+                <td class="flag-date">09-27</td>
+                <td><span class="flag-pill zero">No Flag Found</span></td>
+                <td>7 / 14</td>
+                <td>Hit the infamous mid-exam wall while hunting for Flag 8. Tested multiple hypotheses across internal hosts with zero new flags.</td>
+              </tr>
+              <tr>
+                <td class="flag-date">09-28</td>
+                <td><span class="flag-pill zero">No Flag Found</span></td>
+                <td>7 / 14</td>
+                <td>Second consecutive day with <strong>no flag</strong>. Rabbit holes tested my patience as every obvious vector seemed exhausted.</td>
+              </tr>
+              <tr>
+                <td class="flag-date">09-29</td>
+                <td><span class="flag-pill zero">No Flag Found</span></td>
+                <td>7 / 14</td>
+                <td>Third straight day with <strong>no flag</strong>. Stepped back, reset my mindset, and applied the <strong>Golden Rule: Do enumeration again from scratch when stuck</strong>.</td>
+              </tr>
+              <tr>
+                <td class="flag-date">09-30</td>
+                <td><span class="flag-pill hardest">Flag 8 (Hardest!)</span> <span class="flag-pill found">Flag 9, 10</span></td>
+                <td>10 / 14</td>
+                <td><strong>The Turning Point!</strong> Re-enumerating carefully uncovered the missing piece for <strong>Flag 8—hands-down the hardest flag of the entire exam</strong>. Once Flag 8 fell, the floodgates opened and <strong>Flags 9 and 10</strong> fell the same day!</td>
+              </tr>
+              <tr>
+                <td class="flag-date">09-31 / 10-01</td>
+                <td><span class="flag-pill found">Flag 11, Flag 12</span></td>
+                <td>12 / 14 (85 Pts)</td>
+                <td>Pushed deep into the final domain tier and captured <strong>Flags 11 and 12</strong>—officially crossing the 12-flag passing threshold (85 points)!</td>
+              </tr>
+              <tr>
+                <td class="flag-date">10-02</td>
+                <td><span class="flag-pill report">Report Submitted</span></td>
+                <td>PASSED</td>
+                <td>Verified all screenshots, command outputs, CVSS scores, and remediation advice in <strong>SysReptor</strong>, compiled the final PDF, and submitted the exam report.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        <!-- Visual Screenshot Frame 2: Ligolo-ng Multi-Hop Pivoting -->
+        <div class="callout warn">
+          <div class="callout-title">The Lesson of Sep 27–29 &amp; Flag 8: The Golden Rule</div>
+          Going three full days (<strong>09-27, 09-28, and 09-29</strong>) without finding a single flag after capturing 7 flags in the first three days is mentally brutal. <strong>Flag 8 was by far the hardest flag on the exam.</strong> What broke the deadlock on 09-30 wasn't a lucky guess—it was following the <strong>Golden Rule: When you are stuck, go back and do enumeration again from the beginning</strong>. Re-check every compromised host, re-read every config file, re-verify yourCherryTree checklist, and look closely at output you previously skimmed over.
+        </div>
+
+        <!-- Visual Screenshot Frame: Ligolo-ng Multi-Hop Pivoting -->
         <figure class="screenshot-frame">
           <div class="window-bar">
             <div class="window-dots">
@@ -905,43 +1160,38 @@
               <span class="dot yellow"></span>
               <span class="dot green"></span>
             </div>
-            <div class="window-title">ligolo-ng // proxy — Multi-Subnet Internal Routing</div>
+            <div class="window-title">ligolo-ng // proxy — Internal Network Pivoting Workflow</div>
             <div></div>
           </div>
           <div class="terminal-content">
-<pre><span class="term-comment"># 1. Create dedicated TUN interfaces on the attacker machine for clean subnet routing</span>
+<pre><span class="term-comment"># Setting up dedicated TUN interfaces for clean internal routing</span>
 <span class="term-cmd">asishsahadev@returnroot:~$</span> sudo ip tuntap add user asish mode tun ligolo1
 <span class="term-cmd">asishsahadev@returnroot:~$</span> sudo ip link set ligolo1 up
 <span class="term-cmd">asishsahadev@returnroot:~$</span> sudo ip route add 172.16.10.0/24 dev ligolo1
 
-<span class="term-comment"># 2. Inside the ligolo-ng proxy console after agent callbacks</span>
+<span class="term-comment"># Managing internal pivot sessions &amp; listeners inside ligolo-ng</span>
 <span class="term-info">ligolo-ng &raquo;</span> session
-? Specify a session : <span class="term-highlight">1 - CORP\svc_web@DMZ-WEB01 (10.129.x.x:49812)</span>
-<span class="term-info">[Agent : CORP\svc_web@DMZ-WEB01] &raquo;</span> ifconfig
-┌──────────────────────────────────────────────┐
-│ Interface 0: eth0 (10.129.x.x/16) [External] │
-│ Interface 1: eth1 (172.16.10.5/24) [Internal]│
-└──────────────────────────────────────────────┘
-<span class="term-info">[Agent : CORP\svc_web@DMZ-WEB01] &raquo;</span> start --tun ligolo1
-<span class="term-highlight">[+] Starting tunnel to CORP\svc_web@DMZ-WEB01 (Internal Subnet 172.16.10.0/24 Active)</span>
-<span class="term-info">[Agent : CORP\svc_web@DMZ-WEB01] &raquo;</span> listener_add --addr 0.0.0.0:11601 --to 127.0.0.1:11601 --tcp
-<span class="term-highlight">[+] Listener created on DMZ-WEB01:11601 for Double-Pivot Agent Callback</span></pre>
+? Specify a session : <span class="term-highlight">1 - CORP\svc_web@DMZ-HOST01 (10.129.x.x:49812)</span>
+<span class="term-info">[Agent : CORP\svc_web@DMZ-HOST01] &raquo;</span> start --tun ligolo1
+<span class="term-highlight">[+] Tunnel started: Routing traffic from External Foothold into Internal Subnet</span>
+<span class="term-info">[Agent : CORP\svc_web@DMZ-HOST01] &raquo;</span> listener_add --addr 0.0.0.0:11601 --to 127.0.0.1:11601 --tcp
+<span class="term-highlight">[+] Listener active for chaining deeper internal subnet agents</span></pre>
           </div>
           <figcaption class="screenshot-caption">
-            Figure 2: Establishing native TUN routing and listener relays with <code>ligolo-ng</code> to traverse from the external DMZ IP deep into internal Active Directory subnets.
+            Using <code>ligolo-ng</code> to pivot seamlessly from the initial external IP across segmented internal Active Directory subnets.
           </figcaption>
         </figure>
 
         <!-- Section 6 -->
-        <h2 id="sysreptor"><span class="sec-num">06</span> Writing a Commercial-Grade Report with SysReptor</h2>
+        <h2 id="sysreptor"><span class="sec-num">06</span> Commercial-Grade Reporting with SysReptor &amp; Examiner's Feedback</h2>
         <p>
-          Many strong technical operators underestimate the reporting requirement of CPTS. Capturing 12+ flags only unlocks the door—your report is what actually determines whether you pass or fail. Hack The Box expects a <strong>commercial-grade deliverable</strong> that could be handed directly to a paying enterprise client.
+          Reaching 12 flags (85 points) is only half the battle. Your report is judged as a real commercial deliverable. To build a clean, structured, commercial-grade report without fighting Word formatting, I used <strong><a href="https://docs.sysreptor.com/htb-reporting-with-sysreptor/" target="_blank" rel="noopener noreferrer">SysReptor</a></strong> along with the reporting structure and guidelines shared in <strong><a href="https://www.brunorochamoura.com/posts/road-to-cpts/" target="_blank" rel="noopener noreferrer">Bruno Rocha Moura's Road to CPTS</a></strong>.
         </p>
         <p>
-          Instead of wrestling with Microsoft Word formatting tables at 2:00 AM, I used <strong><a href="https://docs.sysreptor.com/htb-reporting-with-sysreptor/" target="_blank" rel="noopener noreferrer">SysReptor</a></strong> with the official <strong>HTB CPTS Report Template</strong>.
+          Following SysReptor's CPTS template and Bruno Rocha Moura's reporting best practices—especially maintaining third-party auditor independence in remediation recommendations and clearly articulating business impact—paid off directly in my official evaluation.
         </p>
 
-        <!-- Visual Screenshot Frame 3: SysReptor Live Markdown + PDF Preview Mockup -->
+        <!-- Official Examiner's Feedback Screenshot + Verbatim Box -->
         <figure class="screenshot-frame">
           <div class="window-bar">
             <div class="window-dots">
@@ -949,133 +1199,114 @@
               <span class="dot yellow"></span>
               <span class="dot green"></span>
             </div>
-            <div class="window-title">SysReptor — HTB CPTS Commercial Report Builder (Markdown &rarr; PDF)</div>
+            <div class="window-title">Hack The Box Academy — Official CPTS Examiner's Feedback</div>
             <div></div>
           </div>
-          <div class="sysreptor-mock">
-            <div class="sys-pane editor">
-              <div style="color:#8b949e; margin-bottom:0.5rem;">// Markdown Finding Editor</div>
-              <div style="color:#58a6ff;">### Vulnerability Description</div>
-              <div style="color:#c9d1d9; margin-bottom:0.65rem;">
-                The internal web portal on `172.16.10.15` suffers from an unauthenticated Local File Inclusion (LFI) vulnerability in the `page` parameter, allowing extraction of sensitive configuration files and cleartext Active Directory service credentials.
-              </div>
-              <div style="color:#58a6ff;">### Proof of Concept</div>
-              <div style="color:#3fb950;">```http</div>
-              <div style="color:#e6edf3;">GET /index.php?page=....//....//config/db.php HTTP/1.1</div>
-              <div style="color:#3fb950;">```</div>
-              <div style="color:#58a6ff; margin-top:0.65rem;">### Remediation</div>
-              <div style="color:#c9d1d9;">
-                Implement a strict allowlist of permitted template filenames and store sensitive credentials outside the web root with least-privilege ACLs.
-              </div>
-            </div>
-            <div class="sys-pane preview">
-              <div style="font-family:var(--font-mono); font-size:0.72rem; color:#8b949e; margin-bottom:0.4rem;">LIVE PDF RENDER PREVIEW</div>
-              <span class="sys-badge-crit">HIGH • CVSS v3.1: 8.6</span>
-              <h4 style="color:#f0f6fc; font-size:1rem; margin-bottom:0.4rem;">Finding 04: Unauthenticated Local File Inclusion (LFI) Leading to Credential Exposure</h4>
-              <p style="font-size:0.8rem; color:#c9d1d9; margin-bottom:0.6rem;">
-                <strong>Affected Asset:</strong> <code>http://internal.inlanefreight.local (172.16.10.15)</code><br/>
-                <strong>CWE Classification:</strong> CWE-22 (Improper Limitation of a Pathname to a Restricted Directory)
-              </p>
-              <div style="background:#0d1117; border:1px solid #30363d; padding:0.55rem; border-radius:4px; font-family:var(--font-mono); font-size:0.74rem; color:#9fef00;">
-                [+] Evidence Verified: Cleartext AD Service Account extracted &rarr; Lateral Movement to Subnet 172.16.20.0/24
-              </div>
-            </div>
+          <!-- Automatically displays your uploaded examiner feedback screenshot if placed at ../assets/examiner-feedback.png -->
+          <img src="../assets/examiner-feedback.png" alt="HTB CPTS Official Examiner Feedback for Asish K S" style="width:100%; display:block;" onerror="this.style.display='none'" />
+          <div class="feedback-card">
+            <h4>Examiner's Feedback</h4>
+            <p>Hi Asish K S,</p>
+            <p>
+              Congratulations on passing the HTB Certified Penetration Testing Specialist (CPTS) exam! You are now an official holder of the CPTS certification. Feel free to share your achievement on LinkedIn, etc. You earned it! Working through all of the content in this job role path and mastering it by gaining <strong>85 points</strong> on this exam is no small feat!
+            </p>
+            <p>
+              We found your report to be very well done. You captured the description and impact of each vulnerability very well. You gave actionable remediation recommendations that do not break the line of independence that we must maintain as pentesters (essential third-party auditors) by recommending specific technologies or attempting to re-write the customer's code in the report.
+            </p>
+            <p>Here is some constructive feedback on content areas you could focus on to strengthen your skill-set:</p>
+            <ul>
+              <li>It is always good to add descriptive captions to both command output and shell output so the technical people reading it (and possibly using it as a guide to reproduce + test their remediation efforts) can quickly identify what is being shown.</li>
+              <li>Where possible, it can be good to show a few more screenshots/command output to ensure that anyone reading the report can reproduce the issues shown.</li>
+            </ul>
+            <p style="color:#9fef00; font-weight:600;">
+              Overall your report was excellent, well presented, precise, neat, and professional, and the tips above are just constructive feedback.
+            </p>
+            <p style="margin-bottom:0;">
+              Again, congratulations on a job well done, and feel free to show off your hard-earned certificate!
+            </p>
           </div>
           <figcaption class="screenshot-caption">
-            Figure 3: How SysReptor transforms Markdown notes and PoC snippets into a polished, commercial-grade PDF report aligned with HTB CPTS grading rubrics.
+            Official HTB Examiner's Feedback confirming an 85-point pass and highlighting the precision, structure, and third-party auditor independence of the SysReptor report.
           </figcaption>
         </figure>
 
-        <h3>Why SysReptor Is a Game-Changer for CPTS</h3>
-        <ul>
-          <li>
-            <strong>Zero Formatting Headaches:</strong> You write findings in clean Markdown (just like Obsidian), paste screenshots directly from your clipboard, and SysReptor automatically compiles a pixel-perfect PDF with a Table of Contents, severity tables, and page numbers.
-          </li>
-          <li>
-            <strong>Structured for the CPTS Rubric:</strong> The CPTS template includes dedicated sections for the <strong>Executive Summary</strong>, <strong>Scope &amp; Methodology</strong>, <strong>Step-by-Step Attack Chain Walkthrough</strong>, and <strong>Individual Technical Findings</strong> with built-in CVSS v3.1 calculators.
-          </li>
-          <li>
-            <strong>Documenting Collateral Findings:</strong> In a real-world pentest, not every vulnerability directly hands you a flag. If you discover weak password policies, SMB signing disabled, exposed Git repositories, or excessive share permissions along the way, <strong>document them as findings in your report</strong>. Graders reward thorough, consultant-level coverage.
-          </li>
-        </ul>
-
         <!-- Section 7 -->
-        <h2 id="tips-tricks"><span class="sec-num">07</span> Battle-Tested Tips &amp; Tricks to Pass CPTS</h2>
+        <h2 id="tips-tricks"><span class="sec-num">07</span> Battle-Tested Tips, Checklists &amp; The Golden Rule</h2>
         <p>
-          If you are currently preparing for the CPTS exam, here are the most practical lessons from my 18-week prep and my Sep 24 – Oct 2 exam run:
+          Here is a summary of the key habits and strategies that carried me through 18 weeks of preparation and my Sep 24 – Oct 2 exam run:
         </p>
 
         <div class="tips-grid">
           <div class="tip-card">
-            <h4><span class="tip-num">#01</span> Document in Real Time</h4>
-            <p>Never say "I'll take screenshots later." Every time you exploit a vulnerability or capture a flag, immediately grab a screenshot showing <code>whoami</code>, <code>hostname</code>, <code>ipconfig</code>/<code>ifconfig</code>, and the flag value, and paste the raw command output into SysReptor.</p>
+            <h4><span class="tip-num">#01</span> Golden Rule: Re-Enumerate When Stuck</h4>
+            <p>When you hit a multi-day wall (like I did on Sep 27–29 hunting Flag 8), stop guessing exploits. Step back and <strong>do your enumeration again from scratch</strong>—the answer is almost always hiding in a service, share, or file you overlooked.</p>
           </div>
 
           <div class="tip-card">
-            <h4><span class="tip-num">#02</span> Build a Credential Matrix</h4>
-            <p>Maintain a live table in your notes tracking every username, cleartext password, NTLM hash, Kerberos ticket, and SSH key you uncover—and test every new credential across <strong>all previously discovered hosts and services</strong> using <code>netexec</code>.</p>
+            <h4><span class="tip-num">#02</span> Build Your Own Checklist in CherryTree</h4>
+            <p>Use <strong>CherryTree</strong> during the 44d 2h Academy path to build your own structured checklists per service and attack stage. Having your own tested commands saves hours under exam pressure.</p>
           </div>
 
           <div class="tip-card">
-            <h4><span class="tip-num">#03</span> Master Ligolo-ng Early</h4>
-            <p>Don't wait until exam day to figure out double and triple pivots. Practice chaining <code>ligolo-ng</code> listeners and routes inside the <em>Attacking Enterprise Networks (AEN)</em> module until setting up a new subnet takes less than two minutes.</p>
+            <h4><span class="tip-num">#03</span> Remember: AEN Is NOT the Exam</h4>
+            <p>Treat <em>Attacking Enterprise Networks (AEN)</em> as practice, not the finish line. The real CPTS exam is very different and much harder—supplement your prep with <strong>IppSec's Unofficial CPTS machines</strong>.</p>
           </div>
 
           <div class="tip-card">
-            <h4><span class="tip-num">#04</span> Post-Exploitation Is King</h4>
-            <p>Getting root or SYSTEM on a machine is not the end of that host—it is the beginning of the next one. Pillaging config files, browser data, database tables, scheduled scripts, and network connections (<code>netstat -ano</code> / <code>ss -tlpn</code>) is what unlocks the next hop.</p>
+            <h4><span class="tip-num">#04</span> Use SysReptor + Bruno's Reporting Guide</h4>
+            <p>Set up <strong>SysReptor</strong> before Day 1 and follow the reporting guidelines in <a href="https://www.brunorochamoura.com/posts/road-to-cpts/" target="_blank" rel="noopener noreferrer">Bruno Rocha Moura's guide</a>. Keep remediation vendor-neutral so you maintain third-party auditor independence.</p>
           </div>
 
           <div class="tip-card">
-            <h4><span class="tip-num">#05</span> Avoid Rabbit Holes</h4>
-            <p>CPTS vulnerabilities are logical and grounded in the Academy path—not obscure 0-days or guesswork. If an exploit path feels overly contrived after 2–3 hours, step back, review your enumeration output, and check if you missed a vhost, port, or BloodHound edge.</p>
+            <h4><span class="tip-num">#05</span> Caption Every Command &amp; Screenshot</h4>
+            <p>As noted in my examiner feedback, always add clear, descriptive captions to both command output snippets and screenshots so client engineers can reproduce every step from your report alone.</p>
           </div>
 
           <div class="tip-card">
-            <h4><span class="tip-num">#06</span> Respect Your Sleep across 10 Days</h4>
-            <p>Ten days is plenty of time if you pace yourself. Several of my biggest breakthroughs between Sep 24 and Oct 2 happened within 20 minutes of waking up with fresh eyes after stepping away the night before.</p>
+            <h4><span class="tip-num">#06</span> Track Every Credential &amp; Pillaged File</h4>
+            <p>Every time you compromise a host, pillage configuration files, scripts, and databases thoroughly and spray newly discovered credentials across all known internal subnets.</p>
           </div>
         </div>
 
         <!-- Section 8 -->
         <h2 id="additional-reading"><span class="sec-num">08</span> Additional Reading, Practice &amp; Community References</h2>
         <p>
-          While preparing for CPTS, reading how other practitioners structured their study timelines, note-taking systems, and reporting workflows was hugely helpful. I highly recommend bookmarking the following resources:
+          These community write-ups, video search tools, and reporting guides were instrumental during my CPTS journey:
         </p>
 
         <div class="resource-grid">
-          <a href="https://shahriyorr.com/blog/11" target="_blank" rel="noopener noreferrer" class="resource-card">
-            <span class="res-tag">Community CPTS Review</span>
-            <h4>Shahriyor's CPTS Exam Review &amp; Preparation Notes</h4>
-            <p>A concise, practical breakdown of the CPTS preparation journey, mindset shifts, and lessons learned from tackling the exam network.</p>
-            <span class="res-url">shahriyorr.com/blog/11 &rarr;</span>
-          </a>
-
           <a href="https://www.brunorochamoura.com/posts/road-to-cpts/" target="_blank" rel="noopener noreferrer" class="resource-card">
-            <span class="res-tag">Deep-Dive Study Guide</span>
+            <span class="res-tag">Must-Read Prep &amp; Reporting Guide</span>
             <h4>Bruno Rocha Moura — Road to CPTS</h4>
-            <p>An excellent guide detailing the HTB Penetration Tester Path modules, Attacking Enterprise Networks (AEN) strategy, and exam readiness benchmarks.</p>
+            <p>Essential guide covering the HTB Penetration Tester Path, exam readiness, and the exact SysReptor reporting standards that helped me score exceptional examiner feedback.</p>
             <span class="res-url">brunorochamoura.com/posts/road-to-cpts &rarr;</span>
           </a>
 
+          <a href="https://shahriyorr.com/blog/11" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <span class="res-tag">Community CPTS Review</span>
+            <h4>Shahriyor's CPTS Exam Review &amp; Preparation Notes</h4>
+            <p>A practical breakdown of the CPTS preparation mindset, methodology shifts, and lessons learned from tackling the exam network.</p>
+            <span class="res-url">shahriyorr.com/blog/11 &rarr;</span>
+          </a>
+
           <a href="https://ippsec.rocks/" target="_blank" rel="noopener noreferrer" class="resource-card">
-            <span class="res-tag">Interactive Video Search</span>
+            <span class="res-tag">Interactive Video Search &amp; CPTS Playlist</span>
             <h4>IppSec Search Engine (ippsec.rocks)</h4>
-            <p>Search any tool, CVE, Active Directory technique, or Linux/Windows privesc vector to jump straight to the exact timestamp in IppSec's HTB walkthroughs.</p>
+            <p>Search any tool, Active Directory technique, or vulnerability to watch IppSec's Unofficial CPTS machines and learn his enumeration and troubleshooting techniques.</p>
             <span class="res-url">ippsec.rocks &rarr;</span>
           </a>
 
           <a href="https://docs.sysreptor.com/htb-reporting-with-sysreptor/" target="_blank" rel="noopener noreferrer" class="resource-card">
             <span class="res-tag">Official Reporting Tooling</span>
             <h4>SysReptor — HTB CPTS Reporting Documentation</h4>
-            <p>Step-by-step installation guide and official HTB CPTS Markdown template for generating commercial-grade penetration testing reports.</p>
+            <p>Setup instructions and official HTB CPTS template for compiling commercial-grade penetration testing reports from Markdown.</p>
             <span class="res-url">docs.sysreptor.com/htb-reporting-with-sysreptor &rarr;</span>
           </a>
         </div>
 
-        <div class="callout warn">
-          <div class="callout-title">Final Verdict</div>
-          If your goal is to become a genuinely capable penetration tester who can take an external IP and domain name, breach the perimeter, pivot through segmented internal networks, compromise Active Directory, and deliver a report that stands up to client scrutiny—<strong>HTB CPTS is hands-down one of the best investments in offensive security today</strong>.
+        <div class="callout">
+          <div class="callout-title">Final Thoughts</div>
+          Completing the 28 modules (44 days, 2 hours), grinding for 18 weeks across labs and IppSec's Unofficial CPTS playlist, pushing through the 3-day Flag 8 wall during my Sep 24 – Oct 2 exam window, and receiving such positive Examiner Feedback made the entire journey unforgettable. If you want a certification that truly tests real-world penetration testing from an external IP all the way to full internal compromise, <strong>HTB CPTS is unmatched</strong>.
         </div>
 
         <div class="back-links">
