@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ReturnToRoot | Offensive Security & Penetration Testing Research</title>
-  <meta name="description" content="Welcome to ReturnToRoot - An offensive security publication by Asish K Sahadevan covering enterprise penetration testing, Active Directory exploitation, and red team tradecraft." />
+  <meta name="description" content="Welcome to ReturnToRoot - An offensive security publication by Asish K S covering enterprise penetration testing, Active Directory exploitation, and red team tradecraft." />
   <link rel="canonical" href="https://returntoroot.github.io/" />
   <style>
     :root {
@@ -27,6 +27,7 @@
       color: var(--text);
       font-family: var(--font-sans);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
     header {
@@ -45,6 +46,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 1.5rem;
+      gap: 1rem;
     }
 
     .brand {
@@ -52,13 +54,19 @@
       font-weight: 700;
       color: var(--accent-terminal);
       text-decoration: none;
-      font-size: 1.05rem;
+      font-size: 1.02rem;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
     }
 
     .nav-links a {
       color: var(--text-muted);
       text-decoration: none;
-      margin-left: 1.5rem;
       font-size: 0.95rem;
       transition: color 0.2s;
     }
@@ -81,27 +89,30 @@
     .terminal-tag {
       display: inline-block;
       font-family: var(--font-mono);
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: var(--accent-terminal);
       background: rgba(63, 185, 80, 0.1);
       border: 1px solid rgba(63, 185, 80, 0.35);
-      padding: 0.25rem 0.7rem;
+      padding: 0.25rem 0.65rem;
       border-radius: 4px;
       margin-bottom: 1rem;
+      word-break: break-word;
     }
 
     .hero h1 {
-      font-size: 2.8rem;
+      font-size: clamp(1.9rem, 4.2vw, 2.75rem);
       color: var(--heading);
       margin-bottom: 0.85rem;
       letter-spacing: -0.02em;
+      line-height: 1.2;
     }
 
     .hero p {
-      font-size: 1.15rem;
+      font-size: clamp(1rem, 2vw, 1.15rem);
       color: var(--text-muted);
       max-width: 760px;
       margin-bottom: 1.75rem;
+      line-height: 1.65;
     }
 
     .hero-actions {
@@ -120,6 +131,9 @@
       border-radius: 6px;
       text-decoration: none;
       transition: opacity 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
     .btn-primary:hover { opacity: 0.9; }
 
@@ -128,10 +142,11 @@
       justify-content: space-between;
       align-items: baseline;
       margin: 3rem 0 1.25rem;
+      gap: 1rem;
     }
 
     .section-title {
-      font-size: 1.6rem;
+      font-size: clamp(1.35rem, 3vw, 1.6rem);
       color: var(--heading);
     }
 
@@ -140,6 +155,7 @@
       font-size: 0.88rem;
       color: var(--accent);
       text-decoration: none;
+      white-space: nowrap;
     }
     .view-all:hover { text-decoration: underline; }
 
@@ -148,7 +164,7 @@
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 8px;
-      padding: 1.75rem;
+      padding: clamp(1.25rem, 2.5vw, 1.75rem);
       margin-bottom: 1.5rem;
       transition: border-color 0.2s, background-color 0.2s;
     }
@@ -166,9 +182,10 @@
     }
 
     .article-card h3 {
-      font-size: 1.4rem;
+      font-size: clamp(1.2rem, 2.5vw, 1.4rem);
       color: var(--heading);
-      margin: 0.4rem 0 0.6rem;
+      margin: 0.45rem 0 0.65rem;
+      line-height: 1.35;
     }
 
     .article-card h3 a {
@@ -181,15 +198,18 @@
       color: var(--text-muted);
       font-size: 0.95rem;
       margin-bottom: 1.1rem;
+      line-height: 1.6;
     }
 
     .article-card-footer {
       font-family: var(--font-mono);
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
     }
 
     .read-link {
@@ -210,6 +230,44 @@
       font-size: 0.85rem;
       flex-wrap: wrap;
       gap: 1rem;
+    }
+
+    /* Tablet Responsiveness */
+    @media (max-width: 900px) {
+      .hero { padding: 2.75rem 0 2.25rem; }
+      .section-header { margin: 2.5rem 0 1rem; }
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 640px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.85rem 1rem;
+      }
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 1rem;
+        margin-top: 0.5rem;
+      }
+      .hero-actions .btn-primary {
+        width: 100%;
+      }
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.35rem;
+      }
+      .article-card-footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 1.5rem;
+      }
     }
   </style>
 </head>
@@ -255,7 +313,7 @@
           A complete breakdown of how I prepared for and passed the Hack The Box Certified Penetration Testing Specialist (CPTS) exam (Oct 23 – Nov 2)—covering the 28-module Penetration Tester path (44d 2h), IppSec's Unofficial CPTS playlist, the 85/100 passing bar, my day-by-day flag diary, CherryTree checklists, and earning exceptional examiner feedback with SysReptor.
         </p>
         <div class="article-card-footer">
-          <span>By Asish K Sahadevan • 2026 • 16 min read</span>
+          <span>By Asish K S • 2026 • 16 min read</span>
           <a href="articles/htb-cpts-review.html" class="read-link">Read Full Write-up &rarr;</a>
         </div>
       </article>
@@ -263,7 +321,7 @@
   </main>
 
   <footer>
-    <div>&copy; 2026 ReturnToRoot • Offensive Security Portal by Asish K Sahadevan</div>
+    <div>&copy; 2026 ReturnToRoot • Offensive Security Portal by Asish K S</div>
     <div>returntoroot.github.io</div>
   </footer>
 
