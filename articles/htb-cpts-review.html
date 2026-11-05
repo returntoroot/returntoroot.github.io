@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Road to HTB CPTS: 18 Weeks of Prep, Real-World Exam Diary & SysReptor Guide | ReturnToRoot</title>
-  <meta name="description" content="My complete journey passing the Hack The Box Certified Penetration Testing Specialist (CPTS) exam (Oct 23 – Nov 2). Covering 28 modules (44d 2h), 18 weeks of prep, CherryTree checklists, IppSec's Unofficial CPTS machines, daily flag log, and Examiner's Feedback." />
+  <meta name="description" content="My complete journey passing the Hack The Box Certified Penetration Testing Specialist (CPTS) exam (Oct 23 – Nov 2). Covering 28 modules (44d 2h), min 85/100 points, 18 weeks of prep, CherryTree checklists, IppSec's Unofficial CPTS machines, daily flag log, and Examiner's Feedback." />
   <link rel="canonical" href="https://returntoroot.github.io/articles/htb-cpts-review.html" />
   <style>
     :root {
@@ -858,8 +858,9 @@
           How I prepared for and passed the Hack The Box Certified Penetration Testing Specialist (CPTS) exam—from 18 weeks of training across the 28-module Penetration Tester Path (44 days, 2 hours) and IppSec's Unofficial CPTS playlist to my Oct 23 – Nov 2 exam run, CherryTree checklists, and earning exceptional Examiner Feedback.
         </p>
         <div class="article-meta">
-          <span>Author: Asish K S</span>
+          <span>Author: Asish K Sahadevan</span>
           <span>Exam Run: Oct 23 – Nov 2</span>
+          <span>Passing Score: Min 85 / 100 Marks</span>
           <span>Certificate ID: HTBCERT-850BE4F612</span>
           <span>Reading Time: 16 min</span>
         </div>
@@ -878,14 +879,14 @@
           <div class="stat-sub">Modules + Labs + IppSec Track</div>
         </div>
         <div class="stat-box">
+          <div class="stat-label">Passing Criteria</div>
+          <div class="stat-value">85 / 100</div>
+          <div class="stat-sub">Min Score + Commercial Report</div>
+        </div>
+        <div class="stat-box">
           <div class="stat-label">Exam Window</div>
           <div class="stat-value">Oct 23 – Nov 2</div>
           <div class="stat-sub">12 Flags (85 Pts) + Report</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-label">Core Toolstack</div>
-          <div class="stat-value">CherryTree</div>
-          <div class="stat-sub">+ SysReptor &amp; Ligolo-ng</div>
         </div>
       </div>
 
@@ -933,7 +934,7 @@
           Earning the <strong>Hack The Box Certified Penetration Testing Specialist (HTB CPTS)</strong> certification has been one of the most rewarding milestones in my offensive security journey. Unlike exams that test isolated exploit primitives or rely on artificial 24-hour timers, CPTS is engineered to validate whether you can operate as a <strong>real-world enterprise penetration tester</strong>.
         </p>
         <p>
-          There are no isolated CTF boxes with artificial hints. Instead, you are placed into the shoes of a penetration tester dropped against an interconnected corporate environment where every credential, configuration file, service ticket, and network route matters. Passing demands both technical execution across web, Linux, Windows, and Active Directory targets and the ability to deliver an <strong>exceptional commercial-grade penetration testing report</strong>.
+          There are no isolated CTF boxes with artificial hints. Instead, you are placed into the shoes of a penetration tester dropped against an interconnected corporate environment where every credential, configuration file, service ticket, and network route matters. Passing demands both technical execution across web, Linux, Windows, and Active Directory targets (securing a <strong>strict minimum of 85 marks out of 100</strong>) and the ability to deliver an <strong>exceptional commercial-grade penetration testing report</strong>.
         </p>
 
         <!-- Section 2 -->
@@ -979,7 +980,7 @@
             </div>
           </div>
           <figcaption class="screenshot-caption">
-            HTB Activity Heatmap: 18 weeks of steady preparation across the 28-module Penetration Tester Path and practice labs leading up to September.
+            HTB Activity Heatmap: 18 weeks of steady preparation across the 28-module Penetration Tester Path and practice labs leading up to October.
           </figcaption>
         </figure>
 
@@ -1059,7 +1060,7 @@
             <strong>10 Days Total Window:</strong> You are given <strong>10 days</strong> to perform the assessment and submit your commercial-grade report.
           </li>
           <li>
-            <strong>Passing Threshold:</strong> There are <strong>14 flags</strong> across the environment. You must capture at least <strong>12 out of 14 flags</strong> (85 points) and submit a report that meets HTB's strict commercial grading standards.
+            <strong>Passing Threshold (Strict Requirement):</strong> There are <strong>14 flags</strong> across the environment worth a total of 100 points. You must score a <strong>minimum of 85 marks out of 100</strong> (at least 12 flags) <em>AND</em> submit an exceptional, commercial-grade technical report that meets HTB's strict grading criteria. Gaining the points without a professional report will result in a fail.
           </li>
         </ul>
 
@@ -1090,66 +1091,66 @@
                 <td>Exam kickoff. Initial enumeration against the external IP and domain name. Mapping ports, directories, and virtual hosts using my CherryTree checklist.</td>
               </tr>
               <tr>
-                <td class="flag-date">10-24 (Part 2)</td>
+                <td class="flag-date">10-23 (Part 2)</td>
                 <td><span class="flag-pill found">Flag 1</span></td>
                 <td>1 / 14</td>
                 <td>Breakthrough on the perimeter! Chained our initial web findings to compromise the external foothold and secured <strong>Flag 1</strong> before wrapping up Day 1.</td>
               </tr>
               <tr>
-                <td class="flag-date">10-25</td>
+                <td class="flag-date">10-24</td>
                 <td><span class="flag-pill found">Flag 2, Flag 3</span></td>
                 <td>3 / 14</td>
                 <td>Escalated privileges, established the first <code>ligolo-ng</code> tunnel into the internal network, and captured <strong>Flags 2 and 3</strong>.</td>
               </tr>
               <tr>
-                <td class="flag-date">10-26</td>
+                <td class="flag-date">10-25</td>
                 <td><span class="flag-pill found">Flag 4, 5, 6, 7</span></td>
                 <td>7 / 14</td>
                 <td>Huge momentum day! Deep Active Directory enumeration, credential pillaging, and lateral movement unlocked four flags in a single day (<strong>Flags 4, 5, 6, and 7</strong>). Halfway there in 3 days!</td>
               </tr>
               <tr>
-                <td class="flag-date">10-27</td>
+                <td class="flag-date">10-26</td>
                 <td><span class="flag-pill zero">No Flag Found</span></td>
                 <td>7 / 14</td>
                 <td>Hit the infamous mid-exam wall while hunting for Flag 8. Tested multiple hypotheses across internal hosts with zero new flags.</td>
               </tr>
               <tr>
-                <td class="flag-date">10-28</td>
+                <td class="flag-date">10-27</td>
                 <td><span class="flag-pill zero">No Flag Found</span></td>
                 <td>7 / 14</td>
                 <td>Second consecutive day with <strong>no flag</strong>. Rabbit holes tested my patience as every obvious vector seemed exhausted.</td>
               </tr>
               <tr>
-                <td class="flag-date">10-29</td>
+                <td class="flag-date">10-28</td>
                 <td><span class="flag-pill zero">No Flag Found</span></td>
                 <td>7 / 14</td>
                 <td>Third straight day with <strong>no flag</strong>. Stepped back, reset my mindset, and applied the <strong>Golden Rule: Do enumeration again from scratch when stuck</strong>.</td>
               </tr>
               <tr>
-                <td class="flag-date">10-30</td>
+                <td class="flag-date">10-29</td>
                 <td><span class="flag-pill hardest">Flag 8 (Hardest!)</span> <span class="flag-pill found">Flag 9, 10</span></td>
                 <td>10 / 14</td>
                 <td><strong>The Turning Point!</strong> Re-enumerating carefully uncovered the missing piece for <strong>Flag 8—hands-down the hardest flag of the entire exam</strong>. Once Flag 8 fell, the floodgates opened and <strong>Flags 9 and 10</strong> fell the same day!</td>
               </tr>
               <tr>
-                <td class="flag-date">10-31 / 10-01</td>
+                <td class="flag-date">10-30 / 10-31</td>
                 <td><span class="flag-pill found">Flag 11, Flag 12</span></td>
                 <td>12 / 14 (85 Pts)</td>
-                <td>Pushed deep into the final domain tier and captured <strong>Flags 11 and 12</strong>—officially crossing the 12-flag passing threshold (85 points)!</td>
+                <td>Pushed deep into the final domain tier and captured <strong>Flags 11 and 12</strong>—officially crossing the strict 85-point threshold (minimum marks required)!</td>
               </tr>
               <tr>
-                <td class="flag-date">11-02</td>
+                <td class="flag-date">11-01 / 11-02</td>
                 <td><span class="flag-pill report">Report Submitted</span></td>
-                <td>PASSED</td>
-                <td>Verified all screenshots, command outputs, CVSS scores, and remediation advice in <strong>SysReptor</strong>, compiled the final PDF, and submitted the exam report.</td>
+                <td>PASSED (85/100)</td>
+                <td>Verified all screenshots, command outputs, CVSS scores, and remediation advice in <strong>SysReptor</strong>, compiled the final PDF, and submitted the exam report. Officially certified on Nov 02!</td>
               </tr>
             </tbody>
           </table>
         </div>
 
         <div class="callout warn">
-          <div class="callout-title">The Lesson of Oct 27–29 &amp; Flag 8: The Golden Rule</div>
-          Going three full days (<strong>10-27, 10-28, and 10-29</strong>) without finding a single flag after capturing 7 flags in the first three days is mentally brutal. <strong>Flag 8 was by far the hardest flag on the exam.</strong> What broke the deadlock on 09-30 wasn't a lucky guess—it was following the <strong>Golden Rule: When you are stuck, go back and do enumeration again from the beginning</strong>. Re-check every compromised host, re-read every config file, re-verify yourCherryTree checklist, and look closely at output you previously skimmed over.
+          <div class="callout-title">The Lesson of Oct 26–28 &amp; Flag 8: The Golden Rule</div>
+          Going three full days (<strong>10-26, 10-27, and 10-28</strong>) without finding a single flag after capturing 7 flags in the first three days is mentally brutal. <strong>Flag 8 was by far the hardest flag on the exam.</strong> What broke the deadlock on 10-29 wasn't a lucky guess—it was following the <strong>Golden Rule: When you are stuck, go back and do enumeration again from the beginning</strong>. Re-check every compromised host, re-read every config file, re-verify your CherryTree checklist, and look closely at output you previously skimmed over.
         </div>
 
         <!-- Visual Screenshot Frame: Ligolo-ng Multi-Hop Pivoting -->
@@ -1171,10 +1172,10 @@
 
 <span class="term-comment"># Managing internal pivot sessions &amp; listeners inside ligolo-ng</span>
 <span class="term-info">ligolo-ng &raquo;</span> session
-? Specify a session : <span class="term-highlight">1 - CORP\svc_web@DMZ-HOST01 (10.129.x.x:49812)</span>
-<span class="term-info">[Agent : CORP\svc_web@DMZ-HOST01] &raquo;</span> start --tun ligolo1
+? Specify a session : <span class="term-highlight">1 - CORP\\svc_web@DMZ-HOST01 (10.129.x.x:49812)</span>
+<span class="term-info">[Agent : CORP\\svc_web@DMZ-HOST01] &raquo;</span> start --tun ligolo1
 <span class="term-highlight">[+] Tunnel started: Routing traffic from External Foothold into Internal Subnet</span>
-<span class="term-info">[Agent : CORP\svc_web@DMZ-HOST01] &raquo;</span> listener_add --addr 0.0.0.0:11601 --to 127.0.0.1:11601 --tcp
+<span class="term-info">[Agent : CORP\\svc_web@DMZ-HOST01] &raquo;</span> listener_add --addr 0.0.0.0:11601 --to 127.0.0.1:11601 --tcp
 <span class="term-highlight">[+] Listener active for chaining deeper internal subnet agents</span></pre>
           </div>
           <figcaption class="screenshot-caption">
@@ -1233,38 +1234,38 @@
         <!-- Section 7 -->
         <h2 id="tips-tricks"><span class="sec-num">07</span> Battle-Tested Tips, Checklists &amp; The Golden Rule</h2>
         <p>
-          Here is a summary of the key habits and strategies that carried me through 18 weeks of preparation and my Sep 24 – Oct 2 exam run:
+          Here is a summary of the key habits and strategies that carried me through 18 weeks of preparation and my Oct 23 – Nov 2 exam run:
         </p>
 
         <div class="tips-grid">
           <div class="tip-card">
             <h4><span class="tip-num">#01</span> Golden Rule: Re-Enumerate When Stuck</h4>
-            <p>When you hit a multi-day wall (like I did on Oct 27–29 hunting Flag 8), stop guessing exploits. Step back and <strong>do your enumeration again from scratch</strong>—the answer is almost always hiding in a service, share, or file you overlooked.</p>
+            <p>When you hit a multi-day wall (like I did on Oct 26–28 hunting Flag 8), stop guessing exploits. Step back and <strong>do your enumeration again from scratch</strong>—the answer is almost always hiding in a service, share, or file you overlooked.</p>
           </div>
 
           <div class="tip-card">
-            <h4><span class="tip-num">#02</span> Build Your Own Checklist in CherryTree</h4>
+            <h4><span class="tip-num">#02</span> Minimum 85/100 Marks + Professional Report</h4>
+            <p>Keep in mind that the minimum marks required to pass is <strong>85 out of 100</strong> (12 flags). Getting the flags is mandatory, but HTB will not pass you without an exceptional, thorough commercial-grade report.</p>
+          </div>
+
+          <div class="tip-card">
+            <h4><span class="tip-num">#03</span> Build Your Own Checklist in CherryTree</h4>
             <p>Use <strong>CherryTree</strong> during the 44d 2h Academy path to build your own structured checklists per service and attack stage. Having your own tested commands saves hours under exam pressure.</p>
           </div>
 
           <div class="tip-card">
-            <h4><span class="tip-num">#03</span> Remember: AEN Is NOT the Exam</h4>
+            <h4><span class="tip-num">#04</span> Remember: AEN Is NOT the Exam</h4>
             <p>Treat <em>Attacking Enterprise Networks (AEN)</em> as practice, not the finish line. The real CPTS exam is very different and much harder—supplement your prep with <strong>IppSec's Unofficial CPTS machines</strong>.</p>
           </div>
 
           <div class="tip-card">
-            <h4><span class="tip-num">#04</span> Use SysReptor + Bruno's Reporting Guide</h4>
+            <h4><span class="tip-num">#05</span> Use SysReptor + Bruno's Reporting Guide</h4>
             <p>Set up <strong>SysReptor</strong> before Day 1 and follow the reporting guidelines in <a href="https://www.brunorochamoura.com/posts/road-to-cpts/" target="_blank" rel="noopener noreferrer">Bruno Rocha Moura's guide</a>. Keep remediation vendor-neutral so you maintain third-party auditor independence.</p>
           </div>
 
           <div class="tip-card">
-            <h4><span class="tip-num">#05</span> Caption Every Command &amp; Screenshot</h4>
+            <h4><span class="tip-num">#06</span> Caption Every Command &amp; Screenshot</h4>
             <p>As noted in my examiner feedback, always add clear, descriptive captions to both command output snippets and screenshots so client engineers can reproduce every step from your report alone.</p>
-          </div>
-
-          <div class="tip-card">
-            <h4><span class="tip-num">#06</span> Track Every Credential &amp; Pillaged File</h4>
-            <p>Every time you compromise a host, pillage configuration files, scripts, and databases thoroughly and spray newly discovered credentials across all known internal subnets.</p>
           </div>
         </div>
 
@@ -1306,7 +1307,7 @@
 
         <div class="callout">
           <div class="callout-title">Final Thoughts</div>
-          Completing the 28 modules (44 days, 2 hours), grinding for 18 weeks across labs and IppSec's Unofficial CPTS playlist, pushing through the 3-day Flag 8 wall during my Oct 23 – Nov 2 exam window, and receiving such positive Examiner Feedback made the entire journey unforgettable. If you want a certification that truly tests real-world penetration testing from an external IP all the way to full internal compromise, <strong>HTB CPTS is unmatched</strong>.
+          Completing the 28 modules (44 days, 2 hours), grinding for 18 weeks across labs and IppSec's Unofficial CPTS playlist, pushing through the 3-day Flag 8 wall during my Oct 23 – Nov 2 exam window, meeting the strict 85/100 threshold, and receiving such positive Examiner Feedback made the entire journey unforgettable. If you want a certification that truly tests real-world penetration testing from an external IP all the way to full internal compromise, <strong>HTB CPTS is unmatched</strong>.
         </div>
 
         <div class="back-links">
@@ -1314,6 +1315,17 @@
           <a href="../aboutme.html">About the Author &rarr;</a>
         </div>
       </div>
+
+      <div class="author-card">
+        <div class="author-avatar">AS</div>
+        <div class="author-info">
+          <h4>Asish K Sahadevan</h4>
+          <div class="author-creds">HTB CPTS | CREST CPSA | INE eJPT | SecOps CNSP | SecOps CAP | RHCE</div>
+          <p>Offensive Security Specialist &amp; Sr. Solution Consultant focusing on Active Directory exploitation, internal pivoting, and enterprise adversary simulation.</p>
+        </div>
+      </div>
+    </article>
+  </div>
 
   <footer>
     <div>&copy; 2026 ReturnToRoot • Offensive Security Portal by Asish K Sahadevan</div>
