@@ -38,13 +38,12 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    /* Natural static flow - no fixed or sticky obstruction */
     header {
-      background: rgba(22, 27, 34, 0.95);
-      backdrop-filter: blur(8px);
+      background: #161b22;
       border-bottom: 1px solid var(--card-border);
-      position: sticky;
-      top: 0;
-      z-index: 20;
+      position: static;
+      width: 100%;
     }
 
     .nav-inner {
@@ -98,8 +97,9 @@
     }
     .breadcrumbs a:hover { text-decoration: underline; }
 
-    /* Article Header */
+    /* Article Header - Normal Static Flow */
     .article-header {
+      position: static;
       padding-bottom: 1.75rem;
       border-bottom: 1px solid var(--card-border);
       margin-bottom: 2rem;
